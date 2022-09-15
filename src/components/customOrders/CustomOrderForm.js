@@ -17,11 +17,184 @@
 // "cakeDesignId": (drop down menu of cakeDesigns for user to select),
 // "beingBaked": false (boolean feature with default to false for user (employee) to change state of if the order is currently being baked in the CustomOrderEdit component)
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 
 export const CustomOrderForm = () => {
-    const [order, update] =useState({
-        
+    const [order, update] = useState({
+        dateNeeded: "",
+        address: "",
+        numberOfEaters: (0),
+        description: "",
+        messageOnCake: "",
+        beingBaked: false
     })
+    const [cakeDesigns, updateDesigns] = useState([])
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        fetch(`http://localhost:8088/cakeDesigns`)
+        .then(response => response.json())
+        .then((productDesignsArray) => {
+            updateDesigns(productDesignsArray)
+        })
+    }, [])
+
+    const localCakedUser = localStorage.getItem("caked_user")
+    const cakedUserObject = JSON.parse(localCakedUser)
+
+    const handleSaveButtonClick = (event) => {
+        event.preventDefault()
+
+        const orderToAPI = {
+            userId: cakedUserObject.id,
+            dateNeeded: order.dateNeeded,
+            address: order.address,
+            numberOfEaters: parseInt(order.numberOfEaters),
+            description: order.description,
+            messageOnCake: order.messageOnCake,
+            cakeDesignId: parseInt(order.cakeDesignId),
+            cakeFlavorId: parseInt(order.cakeFlavorId),
+            cakeIcingId: parseInt(order.cakeIcingId),
+            cakeFillingId: parseInt(order.cakeIcingId),
+            beingBaked: false
+        }
+
+        return fetch(`http://localhost:8088/cakeOrders`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(orderToAPI)
+        })
+            .then(response => response.json())
+            .then(() => {
+                navigate("/orders")
+            })
+    }
+
+    return (
+        <form className="orderForm">
+            <h2 className="orderForm__title">Create Your Custom Cake</h2>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="name">When is the cake needed?</label>
+                    <input
+                        required autoFocus
+                        type="date"
+                        className="form-control"
+                        placeholder="Enter Date Cake Needed"
+                        value={order.dateNeeded}
+                        onChange={
+                            (evt) => {
+                                const copy = { ...order }
+                                copy.dateNeeded = evt.target.value
+                                update(copy)
+                            }
+                        } />
+
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="address">Where is the Cake needed?</label>
+                    <input
+                        required autoFocus
+                        type="text"
+                        className="form-control"
+                        placeholder="Enter Address"
+                        value={order.address}
+                        onChange={
+                            (evt) => {
+                                const copy = { ...order }
+                                copy.address = evt.target.value
+                                update(copy)
+                            }
+                        } />
+                </div>
+
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="eaters">How Many People need to be served?</label>
+                    <input
+                        required autoFocus
+                        type="text"
+                        className="form-control"
+                        placeholder="Enter Number"
+                        value={order.numberOfEaters}
+                        onChange={
+                            (evt) => {
+                                const copy = { ...order }
+                                copy.numberOfEaters = evt.target.value
+                                update(copy)
+                            }
+                        } />
+                </div>
+
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="description">Description of the Cake:</label>
+                    <input
+                        required autoFocus
+                        type="text"
+                        className="form-control"
+                        placeholder="Describe the theme, color scheme, and any other requests."
+                        value={order.description}
+                        onChange={
+                            (evt) => {
+                                const copy = { ...order }
+                                copy.description = evt.target.value
+                                update(copy)
+                            }
+                        } />
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="message">Is there a message/phrase you would like on the cake?</label>
+                    <input
+                        required autoFocus
+                        type="text"
+                        className="form-control"
+                        placeholder="Brief Message.  If not, put N/A here."
+                        value={order.messageOnCake}
+                        onChange={
+                            (evt) => {
+                                const copy = { ...order }
+                                copy.messageOnCake = evt.target.value
+                                update(copy)
+                            }
+                        } />
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="Design">Select A Cake Design</label>
+                    <select id="Design" value={order.cakeDesignId}
+                        onChange={
+                            (evt) => {
+                                const copy = { ...order }
+                                copy.cakeDesignId = evt.target.value
+                                update(copy)
+                            }}
+                    >
+                        <option value={0}>Please choose a cake design...</option>
+                        {
+                            cakeDesigns.map(design => {
+                                return <option value={design.id}>{design.design}</option>
+                            })
+                        }
+                    </select>
+                </div>
+            </fieldset>
+            <button
+                onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
+                className="btn btn-primary">
+                Submit Your Order
+            </button>
+        </form>
+    )
 }

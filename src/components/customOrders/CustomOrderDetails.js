@@ -9,7 +9,7 @@ export const CustomOrderDetails = () => {
 
     useEffect(
         () => {
-            fetch(`http://localhost:8088/cakeOrders?_expand=user&id=${orderId}`)
+            fetch(`http://localhost:8088/cakeOrders?_expand=user&_expand=cakeFlavor&_expand=cakeIcing&_expand=cakeFilling&_expand=cakeDesign&id=${orderId}`)
                 .then(response => response.json())
                 .then((data) => {
                     const singleOrder = data[0]
@@ -27,10 +27,10 @@ export const CustomOrderDetails = () => {
             <div>Cake needs to serve: {order.numberOfEaters}</div>
             <div>Description: {order.description}</div>
             <div>Message on cake?: {order.message}</div>
-            <div>Cake Desgin: {order.design}</div>
-            <div>Cake Flavor: {order.cakeFlavorId}</div>
-            <div>Cake Icing: {order.cakeIcingId}</div>
-            <div>Cake Filling: {order.cakeFillingId}</div>
+            <div>Cake Desgin: {order?.cakeDesign?.design}</div>
+            <div>Cake Flavor: {order?.cakeFlavor?.flavor}</div>
+            <div>Cake Icing: {order?.cakeIcing?.icing}</div>
+            <div>Cake Filling: {order?.cakeFilling?.filling}</div>
             <footer className="order__footer">Customer Email: {order?.user?.email}</footer>
             <footer className="order__footer">Customer Phone: {order?.user?.phone}</footer>
         </section>
