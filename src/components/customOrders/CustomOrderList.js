@@ -20,61 +20,63 @@ import { useEffect, useState } from "react"
 import { CustomOrder } from "./CustomOrder"
 import "./Orders.css"
 
-export const CustomOrderList = ({ searchTermState } ) => {
+export const CustomOrderList = ({ searchTermState }) => {
     const [orders, setOrders] = useState([])
-    const [filteredOrders, setFiltered] = useState([]) 
+    const [filteredOrders, setFiltered] = useState([])
 
     const localCakedUser = localStorage.getItem("caked_user")
     const cakedUserObject = JSON.parse(localCakedUser)
 
     useEffect(
-      () => {
-          const searchedOrders = orders.filter(order => {
-              return order.description.toLowerCase().includes(searchTermState.toLowerCase())
-          })
-          setFiltered(searchedOrders)
-          // console.log(searchTermState);
-      },
-      [searchTermState]
-  )
+        () => {
+
+            fetch(`http://localhost:8088/cakeOrders?_expand=user`)
+                .then(response => response.json())
+                .then((orderArray) => {
+                    setOrders(orderArray)
+                })
+        },
+        []
+    )
+
     useEffect(
         () => {
-            fetch(`http://localhost:8088/cakeOrders?_expand=user`)
-            .then(response => response.json())
-            .then((orderArray) => {
-                setOrders(orderArray)
+            const searchedOrders = orders.filter(order => {
+                return order.description.toLowerCase().includes(searchTermState.toLowerCase())
             })
-    },
-    []
-  )
+            setFiltered(searchedOrders)
+            // console.log(searchTermState);
+        },
+        [searchTermState]
+    )
+    useEffect(
+        () => {
+            if (cakedUserObject.staff) {
+                //employees view of state
+                setFiltered(orders)
+            }
+            else {
+                //customers view of state: compare id of customer or staff to the userID
+                const myOrders = orders.filter(order => order.userId === cakedUserObject.id)
+                setFiltered(myOrders)
+            }
+        },
+        [orders]
+    )
 
-  useEffect(
-    () => {
-        if (cakedUserObject.staff) {
-            //employees view of state
-            setFiltered(orders)
+
+    return <article className="orders">
+        {
+            filteredOrders.map(order => <CustomOrder key={`order--${order.id}`}
+                id={order.id}
+                fullName={order?.user.fullName}
+                date={order.dateNeeded}
+                eaters={order.numberOfEaters}
+                description={order.description}
+            />
+            )
         }
-        else {
-            //customers view of state: compare id of customer or staff to the userID
-            const myOrders = orders.filter(order => order.userId === cakedUserObject.id)
-            setFiltered(myOrders)
-        }
-    },
-    [orders]
-)
-
-
-  return <article className="orders">
-  {
-      filteredOrders.map(order => <CustomOrder key={`order--${order.id}`}
-          id={order.id} 
-          fullName={order?.user.fullName} 
-          date={order.dateNeeded}
-          eaters={order.numberOfEaters}
-          description={order.description}/>)
-  }
-</article>
-
+    </article>
 }
 
 

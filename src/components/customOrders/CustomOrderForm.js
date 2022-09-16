@@ -31,14 +31,41 @@ export const CustomOrderForm = () => {
         beingBaked: false
     })
     const [cakeDesigns, updateDesigns] = useState([])
+    const [cakeFlavors, updateFlavors] = useState([])
+    const [cakeIcings, updateIcings] = useState([])
+    const [cakeFillings, updateFillings] = useState([])
     const navigate = useNavigate()
 
     useEffect(() => {
         fetch(`http://localhost:8088/cakeDesigns`)
-        .then(response => response.json())
-        .then((productDesignsArray) => {
-            updateDesigns(productDesignsArray)
-        })
+            .then(response => response.json())
+            .then((productDesignsArray) => {
+                updateDesigns(productDesignsArray)
+            })
+    }, [])
+
+    useEffect(() => {
+        fetch(`http://localhost:8088/cakeFlavors`)
+            .then(response => response.json())
+            .then((productFlavorsArray) => {
+                updateFlavors(productFlavorsArray)
+            })
+    }, [])
+
+    useEffect(() => {
+        fetch(`http://localhost:8088/cakeIcings`)
+            .then(response => response.json())
+            .then((productIcingssArray) => {
+                updateIcings(productIcingssArray)
+            })
+    }, [])
+
+    useEffect(() => {
+        fetch(`http://localhost:8088/cakeFillings`)
+            .then(response => response.json())
+            .then((productFillingsArray) => {
+                updateFillings(productFillingsArray)
+            })
     }, [])
 
     const localCakedUser = localStorage.getItem("caked_user")
@@ -57,8 +84,8 @@ export const CustomOrderForm = () => {
             cakeDesignId: parseInt(order.cakeDesignId),
             cakeFlavorId: parseInt(order.cakeFlavorId),
             cakeIcingId: parseInt(order.cakeIcingId),
-            cakeFillingId: parseInt(order.cakeIcingId),
-            beingBaked: false
+            cakeFillingId: parseInt(order.cakeFillingId),
+            beingBaked: order.beingBaked
         }
 
         return fetch(`http://localhost:8088/cakeOrders`, {
@@ -185,6 +212,66 @@ export const CustomOrderForm = () => {
                         {
                             cakeDesigns.map(design => {
                                 return <option value={design.id}>{design.design}</option>
+                            })
+                        }
+                    </select>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="Flavor">Select A Cake Flavor</label>
+                    <select id="Flavor" value={order.cakeFlavorId}
+                        onChange={
+                            (evt) => {
+                                const copy = { ...order }
+                                copy.cakeFlavorId = evt.target.value
+                                update(copy)
+                            }}
+                    >
+                        <option value={0}>Please choose a cake flavor...</option>
+                        {
+                            cakeFlavors.map(flavor => {
+                                return <option value={flavor.id}>{flavor.flavor}</option>
+                            })
+                        }
+                    </select>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="Icing">Select A Cake Icing</label>
+                    <select id="Icing" value={order.cakeIcingId}
+                        onChange={
+                            (evt) => {
+                                const copy = { ...order }
+                                copy.cakeIcingId = evt.target.value
+                                update(copy)
+                            }}
+                    >
+                        <option value={0}>Please choose a cake icing...</option>
+                        {
+                            cakeIcings.map(icing => {
+                                return <option value={icing.id}>{icing.icing}</option>
+                            })
+                        }
+                    </select>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="Filling">Select A Cake Filling</label>
+                    <select id="Filling" value={order.cakeFillingId}
+                        onChange={
+                            (evt) => {
+                                const copy = { ...order }
+                                copy.cakeFillingId = evt.target.value
+                                update(copy)
+                            }}
+                    >
+                        <option value={0}>Please choose a cake filling...</option>
+                        {
+                            cakeFillings.map(filling => {
+                                return <option value={filling.id}>{filling.filling}</option>
                             })
                         }
                     </select>

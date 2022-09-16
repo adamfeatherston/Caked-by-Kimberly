@@ -11,15 +11,16 @@
 
 import { Link } from "react-router-dom"
 
-export const CustomOrder = ({id, fullName, date, eaters, description}) => {
+export const CustomOrder = ({ id, fullName, date, eaters, description, }) => {
+
     return <section className="order">
-        <div>
-            <Link to={`/orders/${id}`}>Order #: {id}</Link>
-        </div>
+        <header>
+            <Link to={`/orders/${id}`}>See details for Order #: {id}</Link>
+        </header>
         <div>order placed by: {fullName}</div>
         <div>order needed on: {date}</div>
         <div>cake needs to serve: {eaters}</div>
-        <div>description: {description}</div>
+        <div>description: {description} </div>
     </section>
 }
 
