@@ -7,6 +7,7 @@ import { Outlet, Route, Routes, useNavigate } from "react-router-dom"
 import { Profile } from "../auth/profile/Profile"
 import { CustomOrderContainer } from "../customOrders/CustomOrderContainer"
 import { CustomOrderDetails } from "../customOrders/CustomOrderDetails"
+import { CustomOrderEdit } from "../customOrders/CustomOrderEdit"
 import { CustomOrderList } from "../customOrders/CustomOrderList"
 import "./EmployeeViews.css"
 
@@ -27,8 +28,10 @@ export const EmployeeViews = () => {
 			}>
 
 				<Route path="profile" element={<Profile />} />
+				<Route path="orders" element={<CustomOrderList />} />
 				<Route path="orders/:orderId" element={<CustomOrderDetails/>} />
 				<Route path="orders" element={<CustomOrderContainer />} />
+				<Route path="orders/edit/:orderId/" element={<CustomOrderEdit />} />
 			</Route>
 		</Routes>
 	)

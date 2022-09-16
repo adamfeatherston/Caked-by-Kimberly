@@ -13,5 +13,5 @@ export const CustomOrderContainer = () => {
     return <>
         <CustomOrderSearch setterFunction={setSearchTerms} />
         <CustomOrderList searchTermState={searchTerms} />
-        </>
+    </>
 }

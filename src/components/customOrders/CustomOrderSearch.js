@@ -3,13 +3,13 @@
 export const CustomOrderSearch = ({ setterFunction }) => {
     return (
         <div>
-            <input 
+            <input
                 onChange={
                     (changeEvent) => {
                         setterFunction(changeEvent.target.value)
                     }
                 }
-            type="text" placeholder="Enter search terms" />
+                type="text" placeholder="Search Order Descriptions" />
         </div>
     )
 }
