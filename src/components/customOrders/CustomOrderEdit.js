@@ -25,8 +25,10 @@ export const CustomOrderEdit = () => {
     const [cakeFlavors, updateFlavors] = useState([])
     const [cakeIcings, updateIcings] = useState([])
     const [cakeFillings, updateFillings] = useState([])
+    const [setOrders] = useState([])
     const { orderId } = useParams()
     const navigate = useNavigate()
+
 
     const localCakedUser = localStorage.getItem("caked_user")
     const cakedUserObject = JSON.parse(localCakedUser)
@@ -89,22 +91,7 @@ export const CustomOrderEdit = () => {
             })
     }
 
-    const deleteButton = () => {
-        if (!cakedUserObject.staff) {
-            return <button onClick={() => {
-                fetch(`http://localhost:8088/cakeOrders/${orderId}`, {
-                    method: "DELETE"
-                })
-                    .then(() => {
-                        navigate("/orders")
-                        window.alert("Your order was successfully deleted")
-                    })
-            }} className="order__delete">Delete Order</button>
-        }
-        else {
-            return ""
-        }
-    }
+
     return (
         <form className="orderForm">
             <h2 className="orderForm__title">Create Your Custom Cake</h2>
@@ -281,28 +268,28 @@ export const CustomOrderEdit = () => {
                     </select>
                 </div>
             </fieldset>
-            {cakedUserObject.staff
-            
-                ? <fieldset>
-                    <label htmlFor="baking">Check when baking has begun:</label>
-                    <input type="checkbox"
-                        checked={order.beingBaked}
-                        onChange={(evt) => {
-                            const copy = {...order}
-                            copy.beingBaked = evt.target.checked
-                            edit(copy)
-                        }
-                    }/>
-            
-                </fieldset>
-                : ""
-            }
             <button
                 onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
                 className="btn btn-primary">
                 Save Your Changes
             </button>
-            {deleteButton() }
+            {cakedUserObject.staff
+            
+                 ? <fieldset>
+                    <label htmlFor="baking">Check when baking has begun:</label>
+                    <input type="checkbox"
+                        checked={order.beingBaked}
+                        onChange={(evt) => {
+                            const copy = { ...order }
+                            copy.beingBaked = evt.target.checked
+                            edit(copy)
+                        }
+                        } />
+            
+                </fieldset>
+                : ""
+            }
+            
         </form>
     )
 }

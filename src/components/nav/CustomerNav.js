@@ -14,7 +14,7 @@ export const CustomerNavBar = () => {
     return (
         <ul className="navbar">
             <li className="navbar__item active">
-                <Link className="navbar__link" to="/orders">Orders</Link>
+                <Link className="navbar__link" to="/orders">Your Orders</Link>
             </li>
 
             <li className="navbar__item active">

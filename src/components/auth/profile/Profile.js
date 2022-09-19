@@ -12,8 +12,10 @@
 //  (isStaff is not included on the form as this element is not going to be editable.  Staff users are already in datatabase, all additional profiles will be customers, or isStaff set to false, which will be default setting.  )
 
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 export const Profile = () => {
+    const navigate = useNavigate()
 
     const [profile, updateProfile] = useState({
         fullName: "",
@@ -59,6 +61,26 @@ export const Profile = () => {
     }, [feedback])
 
     return (<>
+        {!cakedUserObject.staff
+            ? <button onClick={() => navigate("/customOrders/")}>Create Your Own Cake</button>
+            : ""
+        }
+
+        {!cakedUserObject.staff
+            ? <button onClick={() => navigate("/orders/")}>See Your Orders</button>
+            : ""
+        }
+
+        {cakedUserObject.staff
+            ? <button onClick={() => navigate("/orders/")}>See Current Orders</button>
+            : ""
+        }
+
+        {cakedUserObject.staff
+            ? <button onClick={() => navigate("/customers/")}>See All Customers</button>
+            : ""
+        }
+                
         <div className={`${feedback.includes("Error") ? "error" : "feedback"} ${feedback === "" ? "invisible" : "visible"}`}>
             {feedback}
         </div>

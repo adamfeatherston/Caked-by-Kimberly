@@ -5,6 +5,7 @@
 
 import { Outlet, Route, Routes, useNavigate } from "react-router-dom"
 import { Profile } from "../auth/profile/Profile"
+import { CustomerList } from "../customers/CustomerList"
 import { CustomOrderContainer } from "../customOrders/CustomOrderContainer"
 import { CustomOrderDetails } from "../customOrders/CustomOrderDetails"
 import { CustomOrderEdit } from "../customOrders/CustomOrderEdit"
@@ -20,9 +21,7 @@ export const EmployeeViews = () => {
 				<>
 					<h1>Caked by Kimberly</h1>
 					<div>Logo</div>
-					<button onClick={() => navigate("/orders/")}>See Current Orders</button>
-					<button onClick={() => navigate("/customers/")}>See All Customers</button>
-
+					
 					<Outlet />
 				</>
 			}>
@@ -31,6 +30,7 @@ export const EmployeeViews = () => {
 				<Route path="orders" element={<CustomOrderList />} />
 				<Route path="orders/:orderId" element={<CustomOrderDetails/>} />
 				<Route path="orders" element={<CustomOrderContainer />} />
+				<Route path="customers" element={<CustomerList />} />
 				<Route path="orders/edit/:orderId/" element={<CustomOrderEdit />} />
 			</Route>
 		</Routes>

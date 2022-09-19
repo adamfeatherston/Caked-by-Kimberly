@@ -101,7 +101,9 @@ export const CustomOrderForm = () => {
             })
     }
 
-    return (
+    return (<>
+        
+        <button onClick={() => navigate("/orders/")}>See Your Orders</button>
         <form className="orderForm">
             <h2 className="orderForm__title">Create Your Custom Cake</h2>
             <fieldset>
@@ -283,5 +285,6 @@ export const CustomOrderForm = () => {
                 Submit Your Order
             </button>
         </form>
+        </>
     )
 }

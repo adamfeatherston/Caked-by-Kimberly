@@ -1,12 +1,13 @@
 //module for jsx that lists all details of a custom order
 
 import { useEffect, useState } from "react"
-import { Link, useNavigate, useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 
 export const CustomOrderDetails = () => {
     const { orderId } = useParams()
     const [order, updateOrder,] = useState({})
-  
+
+
     const orderIsBeingBaked = () => {
         if (order.beingBaked === false) {
             return <div>
@@ -32,6 +33,7 @@ export const CustomOrderDetails = () => {
         [orderId]
     )
 
+
     return <>
         <section className="order">
             <header className="order__header">Order # {order.id}</header>
@@ -40,7 +42,7 @@ export const CustomOrderDetails = () => {
             <div>Where is cake needed: {order.address}</div>
             <div>Cake needs to serve: {order.numberOfEaters}</div>
             <div>Description: {order.description}</div>
-            <div>Message on cake?: {order.message}</div>
+            <div>Message on cake?: {order.messageOnCake}</div>
             <div>Cake Desgin: {order?.cakeDesign?.design}</div>
             <div>Cake Flavor: {order?.cakeFlavor?.flavor}</div>
             <div>Cake Icing: {order?.cakeIcing?.icing}</div>
@@ -50,6 +52,7 @@ export const CustomOrderDetails = () => {
             {orderIsBeingBaked()}
         </section>
         <section>
+        
         </section>
     </>
 }
