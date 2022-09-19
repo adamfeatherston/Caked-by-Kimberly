@@ -2,12 +2,13 @@
 //CSS for visual looks and adding pictures of sample products.
 //provide button with link for customers to navigate to create a custom order page.
 
-import { Outlet, Route, Routes, useNavigate } from "react-router-dom"
+import { Link, Outlet, Route, Routes, useNavigate } from "react-router-dom"
 import { Profile } from "../auth/profile/Profile"
 import { CustomOrderContainer } from "../customOrders/CustomOrderContainer"
 import { CustomOrderDetails } from "../customOrders/CustomOrderDetails"
 import { CustomOrderEdit } from "../customOrders/CustomOrderEdit"
 import { CustomOrderForm } from "../customOrders/CustomOrderForm"
+import { AboutCaked } from "./AboutCaked"
 import "./CustomerViews.css"
 
 export const CustomerViews = () => {
@@ -19,7 +20,9 @@ export const CustomerViews = () => {
 				<>
 					<h1>Caked by Kimberly</h1>
 					<div>Logo</div>
-					<div>Link to About Caked by Kimblery</div>
+					<div>
+						<Link to={`/about/`}>Learn More About Caked by Kimberly!</Link>
+					</div>
 					<Outlet />
 				</>
 			}>
@@ -29,6 +32,7 @@ export const CustomerViews = () => {
 				<Route path="orders/:orderId" element={<CustomOrderDetails />} />
 				<Route path="customOrders" element={<CustomOrderForm />} />
 				<Route path="orders/edit/:orderId/" element={<CustomOrderEdit />} />
+				<Route path="about" element={<AboutCaked />} />
 			</Route>
 		</Routes>
 	)

@@ -274,8 +274,8 @@ export const CustomOrderEdit = () => {
                 Save Your Changes
             </button>
             {cakedUserObject.staff
-            
-                 ? <fieldset>
+
+                ? <fieldset>
                     <label htmlFor="baking">Check when baking has begun:</label>
                     <input type="checkbox"
                         checked={order.beingBaked}
@@ -285,11 +285,11 @@ export const CustomOrderEdit = () => {
                             edit(copy)
                         }
                         } />
-            
+
                 </fieldset>
                 : ""
             }
-            
+
         </form>
     )
 }

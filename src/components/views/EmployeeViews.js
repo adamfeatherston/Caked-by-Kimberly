@@ -5,15 +5,14 @@
 
 import { Outlet, Route, Routes, useNavigate } from "react-router-dom"
 import { Profile } from "../auth/profile/Profile"
-import { CustomerList } from "../customers/CustomerList"
+import { CustomerContainer } from "../customers/CustomerContainer"
 import { CustomOrderContainer } from "../customOrders/CustomOrderContainer"
 import { CustomOrderDetails } from "../customOrders/CustomOrderDetails"
 import { CustomOrderEdit } from "../customOrders/CustomOrderEdit"
-import { CustomOrderList } from "../customOrders/CustomOrderList"
+import { AboutCaked } from "./AboutCaked"
 import "./EmployeeViews.css"
 
 export const EmployeeViews = () => {
-	const navigate = useNavigate()
 
 	return (
 		<Routes>
@@ -21,17 +20,17 @@ export const EmployeeViews = () => {
 				<>
 					<h1>Caked by Kimberly</h1>
 					<div>Logo</div>
-					
+
 					<Outlet />
 				</>
 			}>
 
 				<Route path="profile" element={<Profile />} />
-				<Route path="orders" element={<CustomOrderList />} />
-				<Route path="orders/:orderId" element={<CustomOrderDetails/>} />
+				<Route path="orders/:orderId" element={<CustomOrderDetails />} />
 				<Route path="orders" element={<CustomOrderContainer />} />
-				<Route path="customers" element={<CustomerList />} />
+				<Route path="customers" element={<CustomerContainer />} />
 				<Route path="orders/edit/:orderId/" element={<CustomOrderEdit />} />
+				<Route path="about" element={<AboutCaked />} />
 			</Route>
 		</Routes>
 	)

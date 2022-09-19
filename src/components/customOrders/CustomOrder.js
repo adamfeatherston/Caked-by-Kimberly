@@ -9,33 +9,33 @@
 //  c. Order can not be edited if state of the order is being baked.
 //  d. POST API state changes to customOrders
 
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 
-export const CustomOrder = ({ id, fullName, date, eaters, description, beingBaked, getAllOrders}) => {
-   
+export const CustomOrder = ({ id, fullName, date, eaters, description, beingBaked, getAllOrders }) => {
+
     const localCakedUser = localStorage.getItem("caked_user")
     const cakedUserObject = JSON.parse(localCakedUser)
 
-   
+
     const orderIsBeingBaked = () => {
         if (beingBaked === false) {
             return <div>
-                {deleteButton()} 
+                {deleteButton()}
             </div>
         }
         else {
             return "Your order is currently being baked.  Contact caked by Kimberly if changes need to be made."
         }
     }
-    
+
     const deleteButton = () => {
-       
+
         if (!cakedUserObject.staff) {
             return <button onClick={() => {
                 fetch(`http://localhost:8088/cakeOrders/${id}`, {
                     method: "DELETE"
                 })
-                   
+
                     .then(() => {
                         getAllOrders()
                         window.alert("Your order was successfully deleted")
@@ -47,17 +47,17 @@ export const CustomOrder = ({ id, fullName, date, eaters, description, beingBake
         }
     }
     return <>
-    
-    <section className="order">
-        <header>
-            <Link to={`/orders/${id}`}>See details for Order #: {id}</Link>
-        </header>
-        <div>order placed by: {fullName}</div>
-        <div>order needed on: {date}</div>
-        <div>cake needs to serve: {eaters}</div>
-        <div>description: {description} </div>
-        <footer>  {orderIsBeingBaked()} </footer>
-    </section>
+
+        <section className="order">
+            <header>
+                <Link to={`/orders/${id}`}>See details for Order #: {id}</Link>
+            </header>
+            <div>order placed by: {fullName}</div>
+            <div>order needed on: {date}</div>
+            <div>cake needs to serve: {eaters}</div>
+            <div>description: {description} </div>
+            <footer>  {orderIsBeingBaked()} </footer>
+        </section>
     </>
 }
 
