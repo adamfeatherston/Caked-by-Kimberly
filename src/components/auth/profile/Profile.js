@@ -15,13 +15,13 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 export const Profile = () => {
-    const navigate = useNavigate()
-
+    
     const [profile, updateProfile] = useState({
         fullName: "",
         email: 0,
         phone: 0
     })
+    const navigate = useNavigate()
 
     const localCakedUser = localStorage.getItem("caked_user")
     const cakedUserObject = JSON.parse(localCakedUser)

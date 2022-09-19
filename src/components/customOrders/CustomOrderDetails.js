@@ -52,7 +52,7 @@ export const CustomOrderDetails = () => {
             {orderIsBeingBaked()}
         </section>
         <section>
-        
+
         </section>
     </>
 }

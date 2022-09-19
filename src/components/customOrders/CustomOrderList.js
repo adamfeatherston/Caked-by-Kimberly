@@ -60,6 +60,7 @@ export const CustomOrderList = ({ searchTermState }) => {
         },
         [searchTermState]
     )
+
     useEffect(
         () => {
             if (cakedUserObject.staff) {

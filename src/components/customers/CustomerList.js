@@ -4,7 +4,7 @@
 //  a. fullName:
 //  b. email:
 //  c. phone:
-//  d. a list of all orders placed by each customer. stretch goal: a link to each order placed by this customer
+//  d. a list of all orders placed by each customer. stretch goal: a link to each user placed by this customer
 //3. Employees can search the list by fullName.
 
 import { useEffect, useState } from "react"
@@ -12,8 +12,9 @@ import { useNavigate } from "react-router-dom"
 import { Customer } from "./Customer"
 import "./Customers.css"
 
-export const CustomerList = () => {
+export const CustomerList = ({ searchTermState }) => {
     const [users, setUsers] = useState([])
+    const [filteredUers, setFiltered] = useState([])
 
     const navigate = useNavigate()
 
@@ -28,12 +29,33 @@ export const CustomerList = () => {
         []
     )
 
+    useEffect(
+        () => {
+
+            const searchedCustomers = users.filter(user => {
+                return user.fullName.toLowerCase().includes(searchTermState.toLowerCase())
+            })
+            setFiltered(searchedCustomers)
+            // console.log(searchTermState);
+        },
+        [searchTermState]
+    )
+
+    useEffect(
+        () => {
+
+            setFiltered(users)
+        },
+
+        [users]
+    )
+
     return <>
         <button onClick={() => navigate("/orders/")}>See Current Orders</button>
-        
+
         <article className="customers">
             {
-                users.map(user => <Customer key={`user--${user.id}`}
+                filteredUers.map(user => <Customer key={`user--${user.id}`}
                     id={user.id}
                     fullName={user.fullName}
                     phone={user.phone}
