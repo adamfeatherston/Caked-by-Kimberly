@@ -3,10 +3,10 @@
 
 
 
-export const Customer = ({ fullName, email, phone}) => {
+export const Customer = ({ fullName, email, phone }) => {
     return <section className="customer">
-   <header className="customer__header">Name: {fullName}</header>
-   <div>Email: {email}</div>
-   <div>Phone Number: {phone}</div>
-  </section>
+        <header className="customer__header">Name: {fullName}</header>
+        <div>Email: {email}</div>
+        <div>Phone Number: {phone}</div>
+    </section>
 }

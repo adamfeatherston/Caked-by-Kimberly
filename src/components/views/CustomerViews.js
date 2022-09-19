@@ -18,12 +18,8 @@ export const CustomerViews = () => {
 			<Route path="/" element={
 				<>
 					<h1>Caked by Kimberly</h1>
-					<div>Custom Order Cakes</div>
 					<div>Logo</div>
-					<div>Pictures of Past Products</div>
-					<button onClick={() => navigate("/customOrders/")}>Create Your Own Cake</button>
-					<button onClick={() => navigate("/orders/")}>See Your Orders</button>
-
+					<div>Link to About Caked by Kimblery</div>
 					<Outlet />
 				</>
 			}>

@@ -17,6 +17,7 @@
 //4. search feature is for the description text box of the custom order. { searchTermState } needs to be inside () of the function.
 
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import { CustomOrder } from "./CustomOrder"
 import "./Orders.css"
 
@@ -27,6 +28,15 @@ export const CustomOrderList = ({ searchTermState }) => {
     const localCakedUser = localStorage.getItem("caked_user")
     const cakedUserObject = JSON.parse(localCakedUser)
 
+    const navigate = useNavigate()
+
+    const getAllOrders = () => {
+        fetch(`http://localhost:8088/cakeOrders?_expand=user`)
+            .then(response => response.json())
+            .then((orderArray) => {
+                setOrders(orderArray)
+            })
+    }
     useEffect(
         () => {
 
@@ -41,6 +51,7 @@ export const CustomOrderList = ({ searchTermState }) => {
 
     useEffect(
         () => {
+
             const searchedOrders = orders.filter(order => {
                 return order.description.toLowerCase().includes(searchTermState.toLowerCase())
             })
@@ -65,18 +76,33 @@ export const CustomOrderList = ({ searchTermState }) => {
     )
 
 
-    return <article className="orders">
-        {
-            filteredOrders.map(order => <CustomOrder key={`order--${order.id}`}
-                id={order.id}
-                fullName={order?.user.fullName}
-                date={order.dateNeeded}
-                eaters={order.numberOfEaters}
-                description={order.description}
-            />
-            )
+    return <>
+        {!cakedUserObject.staff
+            ? <button onClick={() => navigate("/customOrders/")}>Create Your Own Cake</button>
+            : ""
         }
-    </article>
+
+        {cakedUserObject.staff
+            ? <button onClick={() => navigate("/customers/")}>See All Customers</button>
+            : ""
+        }
+
+        <article className="orders">
+            {
+                filteredOrders.map(order => <CustomOrder key={`order--${order.id}`}
+                    id={order.id}
+                    fullName={order?.user.fullName}
+                    date={order.dateNeeded}
+                    eaters={order.numberOfEaters}
+                    description={order.description}
+                    beingBaked={order.beingBaked}
+                    getAllOrders={getAllOrders}
+                />
+                )
+            }
+        </article>
+    </>
+
 }
 
 

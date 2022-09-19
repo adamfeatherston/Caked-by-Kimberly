@@ -9,8 +9,8 @@ import { EmployeeNavBar } from "./EmployeeNav"
 import "./NavBar.css"
 
 export const NavBar = () => {
-    const localCakedUser = localStorage.getItem("caked_user")
-    const cakedUserObject = JSON.parse(localCakedUser)
+	const localCakedUser = localStorage.getItem("caked_user")
+	const cakedUserObject = JSON.parse(localCakedUser)
 
 	if (cakedUserObject.staff) {
 		//return employee views
