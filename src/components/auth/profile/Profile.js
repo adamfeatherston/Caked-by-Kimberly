@@ -50,6 +50,7 @@ export const Profile = () => {
             .then(() => {
                 setFeedback("Profile successfully saved")
             })
+          
     }
     const [feedback, setFeedback] = useState("")
 
@@ -61,25 +62,7 @@ export const Profile = () => {
     }, [feedback])
 
     return (<>
-        {!cakedUserObject.staff
-            ? <button onClick={() => navigate("/customOrders/")}>Create Your Own Cake</button>
-            : ""
-        }
-
-        {!cakedUserObject.staff
-            ? <button onClick={() => navigate("/orders/")}>See Your Orders</button>
-            : ""
-        }
-
-        {cakedUserObject.staff
-            ? <button onClick={() => navigate("/orders/")}>See Current Orders</button>
-            : ""
-        }
-
-        {cakedUserObject.staff
-            ? <button onClick={() => navigate("/customers/")}>See All Customers</button>
-            : ""
-        }
+         
                 
         <div className={`${feedback.includes("Error") ? "error" : "feedback"} ${feedback === "" ? "invisible" : "visible"}`}>
             {feedback}
@@ -99,7 +82,7 @@ export const Profile = () => {
                             (evt) => {
                                 const copy = { ...profile }
                                 copy.fullName
-                                    = evt.target.value
+                                = evt.target.value
                                 updateProfile(copy)
                             }
                         } />
@@ -140,6 +123,10 @@ export const Profile = () => {
                 className="btn btn-primary">
                 Save Profile
             </button>
+        {!cakedUserObject.staff
+            ? <button onClick={() => navigate("/customOrders/")}>Create Your Own Cake</button>
+            : ""
+        }
         </form>
     </>
     )

@@ -39,3 +39,8 @@ p {
   color: rgb(27, 27, 19);
   font-size: 1.5rem;
 }
+
+.logo{
+  image-rendering: auto;
+  background-image: image-set();
+}

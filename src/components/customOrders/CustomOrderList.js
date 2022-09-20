@@ -24,6 +24,8 @@ import "./Orders.css"
 export const CustomOrderList = ({ searchTermState }) => {
     const [orders, setOrders] = useState([])
     const [filteredOrders, setFiltered] = useState([])
+    const [baked, setBaked] = useState(false)
+
 
     const localCakedUser = localStorage.getItem("caked_user")
     const cakedUserObject = JSON.parse(localCakedUser)
@@ -76,34 +78,52 @@ export const CustomOrderList = ({ searchTermState }) => {
         [orders]
     )
 
+    useEffect(
+
+        () => {
+            if (baked) {
+                const bakedOrders = orders.filter(order => order.beingBaked === false)
+                setFiltered(bakedOrders)
+            }
+            else {
+                setFiltered(orders)
+            }
+        },
+        [baked]
+    )
+
 
     return <>
-        {!cakedUserObject.staff
-            ? <button onClick={() => navigate("/customOrders/")}>Create Your Own Cake</button>
-            : ""
-        }
-
-        {cakedUserObject.staff
-            ? <button onClick={() => navigate("/customers/")}>See All Customers</button>
-            : ""
-        }
-
+        <button onClick={() => { setBaked(!baked)
+         }} >
+            {
+                baked
+                ? "Show All Orders"
+                : "Orders Not Baked"
+             } </button>
+       
+    
         <article className="orders">
             {
                 filteredOrders.map(order => <CustomOrder key={`order--${order.id}`}
-                    id={order.id}
-                    fullName={order?.user.fullName}
-                    date={order.dateNeeded}
-                    eaters={order.numberOfEaters}
-                    description={order.description}
-                    beingBaked={order.beingBaked}
-                    getAllOrders={getAllOrders}
+                id={order.id}
+                fullName={order?.user.fullName}
+                date={order.dateNeeded}
+                eaters={order.numberOfEaters}
+                description={order.description}
+                beingBaked={order.beingBaked}
+                getAllOrders={getAllOrders}
                 />
                 )
             }
         </article>
+            {!cakedUserObject.staff
+                ? <button onClick={() => navigate("/customOrders/")}>Create Your Own Cake</button>
+                : ""
+            }
     </>
 
 }
 
-
+{/* <button onClick={() => { setBaked(true) }} >Orders Not Baked </button>
+        <button onClick={() => { setBaked(false) }} >Show All Orders</button> */}
