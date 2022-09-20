@@ -51,8 +51,7 @@ export const CustomerList = ({ searchTermState }) => {
     )
 
     return <>
-        <button onClick={() => navigate("/orders/")}>See Current Orders</button>
-
+       
         <article className="customers">
             {
                 filteredUers.map(user => <Customer key={`user--${user.id}`}

@@ -87,7 +87,7 @@ export const CustomOrderEdit = () => {
             .then(response => response.json())
             .then(() => {
                 navigate("/orders")
-                window.alert("Your order was successfully edited")
+                window.alert("Your order was successfully edited.  You will not be able to edit once the baking process has begun.")
             })
     }
 

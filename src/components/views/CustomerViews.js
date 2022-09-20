@@ -18,7 +18,7 @@ export const CustomerViews = () => {
 			<Route path="/" element={
 				<>
 					<h1>Caked by Kimberly</h1>
-					<div>Logo</div>
+					<div className="logo" id="logo">{Image}</div>
 					<Outlet />
 				</>
 			}>

@@ -97,13 +97,13 @@ export const CustomOrderForm = () => {
         })
             .then(response => response.json())
             .then(() => {
+                window.alert(`Your order was successfully submitted.  You will be contacted regarding the price of the cake.`)
                 navigate("/orders")
             })
     }
 
     return (<>
-
-        <button onClick={() => navigate("/orders/")}>See Your Orders</button>
+        
         <form className="orderForm">
             <h2 className="orderForm__title">Create Your Custom Cake</h2>
             <fieldset>
