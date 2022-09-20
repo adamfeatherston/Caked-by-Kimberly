@@ -21,6 +21,9 @@ export const CustomerNavBar = () => {
                 <Link className="navbar__link" to="/customOrders">Create New Order</Link>
             </li>
 
+            <li className="navbar__item active">
+                <Link className="navbar__link" to="/about">About Caked by Kimberly</Link>
+            </li>
 
             <li className="navbar__item active">
                 <Link className="navbar__link" to="/profile">Profile</Link>

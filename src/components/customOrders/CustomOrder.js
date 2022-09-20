@@ -24,7 +24,7 @@ export const CustomOrder = ({ id, fullName, date, eaters, description, beingBake
             </div>
         }
         else {
-            return "Your order is currently being baked.  Contact caked by Kimberly if changes need to be made."
+            return `Your order is currently being baked.  Contact "caked by Kimberly"  at 256-431-6116 if changes need to be made.`
         }
     }
 

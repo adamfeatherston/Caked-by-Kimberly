@@ -12,7 +12,6 @@ import { AboutCaked } from "./AboutCaked"
 import "./CustomerViews.css"
 
 export const CustomerViews = () => {
-	const navigate = useNavigate()
 
 	return (
 		<Routes>
@@ -20,9 +19,6 @@ export const CustomerViews = () => {
 				<>
 					<h1>Caked by Kimberly</h1>
 					<div>Logo</div>
-					<div>
-						<Link to={`/about/`}>Learn More About Caked by Kimberly!</Link>
-					</div>
 					<Outlet />
 				</>
 			}>
