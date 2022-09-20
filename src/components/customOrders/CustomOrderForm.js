@@ -129,7 +129,7 @@ export const CustomOrderForm = () => {
                 <div className="form-group">
                     <label htmlFor="address">Where is the Cake needed?</label>
                     <input
-                        required autoFocus
+                        
                         type="text"
                         className="form-control"
                         placeholder="Enter Address"
@@ -148,7 +148,7 @@ export const CustomOrderForm = () => {
                 <div className="form-group">
                     <label htmlFor="eaters">How Many People need to be served?</label>
                     <input
-                        required autoFocus
+                        
                         type="text"
                         className="form-control"
                         placeholder="Enter Number"
@@ -167,7 +167,7 @@ export const CustomOrderForm = () => {
                 <div className="form-group">
                     <label htmlFor="description">Description of the Cake:</label>
                     <input
-                        required autoFocus
+                       
                         type="text"
                         className="form-control"
                         placeholder="Describe the theme, color scheme, and any other requests."
@@ -185,7 +185,7 @@ export const CustomOrderForm = () => {
                 <div className="form-group">
                     <label htmlFor="message">Is there a message/phrase you would like on the cake?</label>
                     <input
-                        required autoFocus
+                        
                         type="text"
                         className="form-control"
                         placeholder="Brief Message.  If not, put N/A here."
