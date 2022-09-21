@@ -18,7 +18,8 @@ export const CustomerViews = () => {
 			<Route path="/" element={
 				<>
 					<h1>Caked by Kimberly</h1>
-					<div className="logo" id="logo">{Image}</div>
+
+					<img className="logo" id="logo" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1663770639/logo.1_ydjx4g.jpg" alt="Logo for caked by Kimberly"></img>
 					<Outlet />
 				</>
 			}>

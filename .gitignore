@@ -21,3 +21,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+CLOUD_NAME="dm5alwbmv"
+API_KEY="822745254293683"
+API_SECRET="4z7LRXSs4nzXgdL7gAcTFZd8ZyE"
+UPLOAD_PRESET="ayinbk5a"

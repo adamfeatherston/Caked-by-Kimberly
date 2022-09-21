@@ -10,7 +10,7 @@ import { CustomOrderContainer } from "../customOrders/CustomOrderContainer"
 import { CustomOrderDetails } from "../customOrders/CustomOrderDetails"
 import { CustomOrderEdit } from "../customOrders/CustomOrderEdit"
 import { AboutCaked } from "./AboutCaked"
-import "./EmployeeViews.css"
+import "./CustomerViews.css"
 
 export const EmployeeViews = () => {
 
@@ -18,9 +18,12 @@ export const EmployeeViews = () => {
 		<Routes>
 			<Route path="/" element={
 				<>
-					<h1>Caked by Kimberly</h1>
-					<div>Logo</div>
+					<section className="title" id="title">
+						<h1>Caked by Kimberly</h1>
 
+						<img className="logo" id="logo" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1663770639/logo.1_ydjx4g.jpg" alt="Logo for caked by Kimberly"></img>
+
+					</section>
 					<Outlet />
 				</>
 			}>
