@@ -7,20 +7,25 @@ body,
 button,
 input,
 select,
-
 textarea {
   color: #404040;
-  font-family: "Comfortaa", Arial, sans-serif;
-  font-size: 14px;
+  font-family: "Cookie", cursive;
+  font-size: 20px;
   line-height: 1.5;
+  background-color: rgba(200, 207, 215, 0.91);
 }
 
 body {
   padding: 0 3rem;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Patua One", serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Cookie", serif;
   letter-spacing: 2px;
 }
 
@@ -32,15 +37,43 @@ p {
   margin-block-end: 0;
 }
 
-#Button {
-  margin: 1rem 0 2rem 1rem;
-  padding: 0.75rem;
-  background-color: rgb(15, 117, 70);
-  color: rgb(27, 27, 19);
-  font-size: 1.5rem;
+.logo {
+ height: 300px;
+ width: 300px;
+}
+.title{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  -ms-flex-align: center;
+  flex-direction: column;
+   
 }
 
-.logo{
-  image-rendering: auto;
-  background-image: image-set();
+.image{
+  height: 300px;
+  width: 300px;
+  padding-right: 3rem;
+  
 }
+
+.about_text{
+  display: flex;
+  text-align: center;
+  color: #404040;
+  font-family: "Cookie", cursive;
+  font-size: 35px;
+  line-height: 1.5;
+}
+.about__1{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+ }
+
+ .about__2{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  padding-right: 5rem;
+ }

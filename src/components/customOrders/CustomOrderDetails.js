@@ -1,13 +1,13 @@
 //module for jsx that lists all details of a custom order
 
 import { useEffect, useState } from "react"
-import { Link, useParams } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 
 export const CustomOrderDetails = () => {
     const { orderId } = useParams()
     const [order, updateOrder,] = useState({})
-
-
+    const navigate = useNavigate()
+  
     const orderIsBeingBaked = () => {
         if (order.beingBaked === false) {
             return <div>
@@ -52,7 +52,11 @@ export const CustomOrderDetails = () => {
             {orderIsBeingBaked()}
         </section>
         <section>
+            <div>
 
+                <button onClick={() => navigate("/orders/")}>See All Orders</button>
+
+            </div>
         </section>
     </>
 }

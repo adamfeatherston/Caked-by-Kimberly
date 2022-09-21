@@ -1,16 +1,16 @@
 .orders {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction:column;
     justify-content: space-evenly;
 }
 
 .order {
-    background-color: rgb(223, 175, 87);
-    border: .2em solid orange;
+    background-color: rgb(225, 228, 237);
+    border: .1em solid rgb(179, 189, 176);
     color: black;
     padding: 0.5rem;
-    margin: 0.5rem
+    margin: 0.5rem;
+    font-family: "Cookie", cursive;
 }
 
 .order__footer {
@@ -23,3 +23,4 @@
     font-weight: 865;
     line-height: 2.75rem;
 }
+
