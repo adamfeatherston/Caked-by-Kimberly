@@ -14,8 +14,8 @@ export const CustomerNavBar = () => {
 
     return (
         <ul className="navbar">
-            <li className="navbar__item active">
-                <Link className="navbar__link" to="/about">About Caked by Kimberly</Link>
+            <li className="navbar__item navbar__logo">
+                <Link className="navbar__link" to="/about"><img className="logo__nav" id="logo__nav" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1663814379/Caked_log_edl0zb.jpg" alt="Logo for caked by Kimberly"></img></Link>
             </li>
 
             <li className="navbar__item active">

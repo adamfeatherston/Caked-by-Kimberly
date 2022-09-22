@@ -25,7 +25,6 @@ export const CustomOrderEdit = () => {
     const [cakeFlavors, updateFlavors] = useState([])
     const [cakeIcings, updateIcings] = useState([])
     const [cakeFillings, updateFillings] = useState([])
-    const [setOrders] = useState([])
     const { orderId } = useParams()
     const navigate = useNavigate()
 
@@ -86,13 +85,14 @@ export const CustomOrderEdit = () => {
         })
             .then(response => response.json())
             .then(() => {
-                navigate("/orders")
                 window.alert("Your order was successfully edited.  You will not be able to edit once the baking process has begun.")
+                navigate("/orders/")
             })
     }
 
 
-    return (
+    return (<>
+
         <form className="orderForm">
             <h2 className="orderForm__title">Create Your Custom Cake</h2>
             <fieldset>
@@ -270,7 +270,7 @@ export const CustomOrderEdit = () => {
             </fieldset>
             <button
                 onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
-                className="btn btn-primary">
+                className="buttons">
                 Save Your Changes
             </button>
             {cakedUserObject.staff
@@ -291,5 +291,8 @@ export const CustomOrderEdit = () => {
             }
 
         </form>
-    )
+
+        <button className="buttons" onClick={() => navigate("/orders/")}>See All Orders</button>
+
+    </>)
 }

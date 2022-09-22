@@ -19,7 +19,7 @@
 
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-
+import "./Form.css"
 
 export const CustomOrderForm = () => {
     const [order, update] = useState({
@@ -101,6 +101,15 @@ export const CustomOrderForm = () => {
                 navigate("/orders")
             })
     }
+
+    const [feedback, setFeedback] = useState("")
+
+    useEffect(() => {
+        if (feedback !== "") {
+            // Clear feedback to make entire element disappear after  seconds
+            setTimeout(() => setFeedback(""), 3000);
+        }
+    }, [feedback])
 
     return (<>
         
@@ -279,9 +288,9 @@ export const CustomOrderForm = () => {
                     </select>
                 </div>
             </fieldset>
-            <button
+            <button className="buttons"
                 onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
-                className="btn btn-primary">
+                >
                 Submit Your Order
             </button>
         </form>

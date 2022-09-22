@@ -56,6 +56,7 @@ return (
         <section>
             <form className="form--login" onSubmit={handleLogin}>
                 <h1>Caked by Kimberly</h1>
+                <img className="logo" id="logo" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1663814379/Caked_log_edl0zb.jpg" alt="Logo for caked by Kimberly"></img>
                 <h2>Please sign in</h2>
                 <fieldset>
                     <label htmlFor="inputEmail"> Email address </label>

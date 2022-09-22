@@ -24,6 +24,7 @@ import "./Orders.css"
 export const CustomOrderList = ({ searchTermState }) => {
     const [orders, setOrders] = useState([])
     const [filteredOrders, setFiltered] = useState([])
+    const [sorted, setSorted] = useState([])
     const [baked, setBaked] = useState(false)
 
 
@@ -33,7 +34,7 @@ export const CustomOrderList = ({ searchTermState }) => {
     const navigate = useNavigate()
 
     const getAllOrders = () => {
-        fetch(`http://localhost:8088/cakeOrders?_expand=user`)
+        fetch(`http://localhost:8088/cakeOrders?_sort=dateNeeded&_expand=user`)
             .then(response => response.json())
             .then((orderArray) => {
                 setOrders(orderArray)
@@ -42,7 +43,7 @@ export const CustomOrderList = ({ searchTermState }) => {
     useEffect(
         () => {
 
-            fetch(`http://localhost:8088/cakeOrders?_expand=user`)
+            fetch(`http://localhost:8088/cakeOrders?_sort=dateNeeded&_expand=user`)
                 .then(response => response.json())
                 .then((orderArray) => {
                     setOrders(orderArray)
@@ -51,6 +52,7 @@ export const CustomOrderList = ({ searchTermState }) => {
         []
     )
 
+   
     useEffect(
         () => {
 
@@ -94,36 +96,36 @@ export const CustomOrderList = ({ searchTermState }) => {
 
 
     return <>
-        <button onClick={() => { setBaked(!baked)
-         }} >
+        <button className="buttons" onClick={() => {
+            setBaked(!baked)
+        }} >
             {
                 baked
-                ? "Show All Orders"
-                : "Orders Not Baked"
-             } </button>
-       
-    
+                    ? "Show All Orders"
+                    : "Orders Not Baked"
+            } </button>
+
+
         <article className="orders">
             {
                 filteredOrders.map(order => <CustomOrder key={`order--${order.id}`}
-                id={order.id}
-                fullName={order?.user.fullName}
-                date={order.dateNeeded}
-                eaters={order.numberOfEaters}
-                description={order.description}
-                beingBaked={order.beingBaked}
-                getAllOrders={getAllOrders}
+                    id={order.id}
+                    fullName={order?.user.fullName}
+                    date={order.dateNeeded}
+                    eaters={order.numberOfEaters}
+                    description={order.description}
+                    beingBaked={order.beingBaked}
+                    getAllOrders={getAllOrders}
                 />
                 )
             }
         </article>
-            {!cakedUserObject.staff
-                ? <button onClick={() => navigate("/customOrders/")}>Create Your Own Cake</button>
-                : ""
-            }
+        {!cakedUserObject.staff
+            ? <button className="buttons" onClick={() => navigate("/customOrders/")}>Create Your Own Cake</button>
+            : ""
+        }
     </>
 
 }
 
-{/* <button onClick={() => { setBaked(true) }} >Orders Not Baked </button>
-        <button onClick={() => { setBaked(false) }} >Show All Orders</button> */}
+

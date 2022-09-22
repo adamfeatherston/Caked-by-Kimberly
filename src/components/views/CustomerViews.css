@@ -4,10 +4,7 @@
 /*Typography
 --------------------------------------------------------------*/
 body,
-button{
-  color:rgb(226, 148, 171)
-
-}
+button,
 input,
 select,
 textarea {
@@ -30,7 +27,7 @@ h5,
 h6 {
   font-family: "Cookie", serif;
   letter-spacing: 2px;
-  color: rgb(226, 148, 171);
+  color: rgb(233, 196, 210);
  }
 
 p {
@@ -63,7 +60,6 @@ p {
 }
 
 .about_text{
-  display: flex;
   text-align: center;
   color: #404040;
   font-family: "Cookie", cursive;
@@ -75,22 +71,17 @@ p {
   flex-wrap: wrap;
   justify-content: center;
   padding-right: 5rem;
-  padding-bottom: 5rem;
-  padding-top: 5rem;
- }
-
- .about__2{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: left;
-  padding-right: 5rem;
+  padding-bottom: 2rem;
+  padding-top: 1rem;
  }
 
 .caked_main{
-  display: flex;
- -ms-flex-item-align: center;
-  justify-content: center;
-  justify-items: center;
-  
-}
+  text-align: center;
+  }
  
+.buttons{
+  color: white;
+  border: solid rgb(178, 200, 188);
+  background-color: rgb(233, 196, 210);
+
+}
