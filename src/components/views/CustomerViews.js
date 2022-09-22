@@ -17,9 +17,12 @@ export const CustomerViews = () => {
 		<Routes>
 			<Route path="/" element={
 				<>
-					<h1>Caked by Kimberly</h1>
+					<section className="caked_main" id="caked_main">
+						<h1>Caked by Kimberly</h1>
+						<img className="logo" id="logo" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1663814379/Caked_log_edl0zb.jpg" alt="Logo for caked by Kimberly"></img>
+					</section>
 
-					<img className="logo" id="logo" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1663770639/logo.1_ydjx4g.jpg" alt="Logo for caked by Kimberly"></img>
+
 					<Outlet />
 				</>
 			}>

@@ -4,7 +4,10 @@
 /*Typography
 --------------------------------------------------------------*/
 body,
-button,
+button{
+  color:rgb(226, 148, 171)
+
+}
 input,
 select,
 textarea {
@@ -12,7 +15,7 @@ textarea {
   font-family: "Cookie", cursive;
   font-size: 20px;
   line-height: 1.5;
-  background-color: rgba(200, 207, 215, 0.91);
+  background-color: white;
 }
 
 body {
@@ -27,7 +30,8 @@ h5,
 h6 {
   font-family: "Cookie", serif;
   letter-spacing: 2px;
-}
+  color: rgb(226, 148, 171);
+ }
 
 p {
   margin-bottom: 1.5em;
@@ -40,6 +44,7 @@ p {
 .logo {
  height: 300px;
  width: 300px;
+
 }
 .title{
   display: flex;
@@ -51,7 +56,7 @@ p {
 }
 
 .image{
-  height: 300px;
+  height: 370px;
   width: 300px;
   padding-right: 3rem;
   
@@ -69,6 +74,9 @@ p {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding-right: 5rem;
+  padding-bottom: 5rem;
+  padding-top: 5rem;
  }
 
  .about__2{
@@ -77,3 +85,12 @@ p {
   justify-content: left;
   padding-right: 5rem;
  }
+
+.caked_main{
+  display: flex;
+ -ms-flex-item-align: center;
+  justify-content: center;
+  justify-items: center;
+  
+}
+ 
