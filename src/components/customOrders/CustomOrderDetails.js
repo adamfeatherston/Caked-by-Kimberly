@@ -7,7 +7,7 @@ export const CustomOrderDetails = () => {
     const { orderId } = useParams()
     const [order, updateOrder,] = useState({})
     const navigate = useNavigate()
-  
+
     const orderIsBeingBaked = () => {
         if (order.beingBaked === false) {
             return <div>
@@ -54,7 +54,7 @@ export const CustomOrderDetails = () => {
         <section>
             <div>
 
-                <button  className="buttons" onClick={() => navigate("/orders/")}>See All Orders</button>
+                <button className="buttons" onClick={() => navigate("/orders/")}>See All Orders</button>
 
             </div>
         </section>

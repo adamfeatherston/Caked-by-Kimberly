@@ -52,7 +52,7 @@ export const CustomOrderList = ({ searchTermState }) => {
         []
     )
 
-   
+
     useEffect(
         () => {
 
@@ -96,15 +96,17 @@ export const CustomOrderList = ({ searchTermState }) => {
 
 
     return <>
-        <button className="buttons" onClick={() => {
-            setBaked(!baked)
-        }} >
-            {
-                baked
-                    ? "Show All Orders"
-                    : "Orders Not Baked"
-            } </button>
-
+        {cakedUserObject.staff
+            ? <button className="buttons" onClick={() => {
+                setBaked(!baked)
+            }} >
+                {
+                    baked
+                        ? "Show All Orders"
+                        : "Orders Not Baked"
+                } </button>
+            :""
+        }
 
         <article className="orders">
             {
@@ -127,5 +129,7 @@ export const CustomOrderList = ({ searchTermState }) => {
     </>
 
 }
+
+
 
 

@@ -1,6 +1,6 @@
 .orders {
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     justify-content: space-evenly;
 }
 
@@ -24,14 +24,13 @@
     line-height: 2.75rem;
 }
 
-.search_text{
+.search_text {
     color: rgb(233, 196, 210);
 }
 
-.buttons{
+.buttons {
     color: white;
     border: solid rgb(178, 200, 188);
     background-color: rgb(233, 196, 210);
-  
-  }
 
+}

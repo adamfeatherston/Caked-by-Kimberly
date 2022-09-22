@@ -15,7 +15,7 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 export const Profile = () => {
-    
+
     const [profile, updateProfile] = useState({
         fullName: "",
         email: 0,
@@ -50,7 +50,7 @@ export const Profile = () => {
             .then(() => {
                 setFeedback("Profile successfully saved")
             })
-          
+
     }
     const [feedback, setFeedback] = useState("")
 
@@ -62,8 +62,8 @@ export const Profile = () => {
     }, [feedback])
 
     return (<>
-         
-                
+
+
         <div className={`${feedback.includes("Error") ? "error" : "feedback"} ${feedback === "" ? "invisible" : "visible"}`}>
             {feedback}
         </div>
@@ -82,7 +82,7 @@ export const Profile = () => {
                             (evt) => {
                                 const copy = { ...profile }
                                 copy.fullName
-                                = evt.target.value
+                                    = evt.target.value
                                 updateProfile(copy)
                             }
                         } />
@@ -120,15 +120,15 @@ export const Profile = () => {
             </fieldset>
             <button className="buttons"
                 onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
-                >
+            >
                 Save Profile
             </button>
         </form>
         <div>
-        {!cakedUserObject.staff
-            ? <button className="buttons" onClick={() => navigate("/customOrders/")}>Create Your Own Cake</button>
-            : ""
-        }
+            {!cakedUserObject.staff
+                ? <button className="buttons" onClick={() => navigate("/customOrders/")}>Create Your Own Cake</button>
+                : ""
+            }
         </div>
     </>
     )

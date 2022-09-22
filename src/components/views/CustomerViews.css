@@ -28,7 +28,7 @@ h6 {
   font-family: "Cookie", serif;
   letter-spacing: 2px;
   color: rgb(233, 196, 210);
- }
+}
 
 p {
   margin-bottom: 1.5em;
@@ -39,47 +39,49 @@ p {
 }
 
 .logo {
- height: 300px;
- width: 300px;
+  height: 300px;
+  width: 300px;
 
 }
-.title{
+
+.title {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   -ms-flex-align: center;
   flex-direction: column;
-   
+
 }
 
-.image{
+.image {
   height: 370px;
   width: 300px;
   padding-right: 3rem;
-  
+
 }
 
-.about_text{
+.about_text {
   text-align: center;
   color: #404040;
   font-family: "Cookie", cursive;
   font-size: 35px;
   line-height: 1.5;
 }
-.about__1{
+
+.about__1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   padding-right: 5rem;
   padding-bottom: 2rem;
   padding-top: 1rem;
- }
+}
 
-.caked_main{
+.caked_main {
   text-align: center;
-  }
- 
-.buttons{
+}
+
+.buttons {
   color: white;
   border: solid rgb(178, 200, 188);
   background-color: rgb(233, 196, 210);

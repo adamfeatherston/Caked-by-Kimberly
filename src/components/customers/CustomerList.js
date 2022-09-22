@@ -8,15 +8,12 @@
 //3. Employees can search the list by fullName.
 
 import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
 import { Customer } from "./Customer"
 import "./Customers.css"
 
 export const CustomerList = ({ searchTermState }) => {
     const [users, setUsers] = useState([])
     const [filteredUers, setFiltered] = useState([])
-
-    const navigate = useNavigate()
 
     useEffect(
         () => {
@@ -51,7 +48,7 @@ export const CustomerList = ({ searchTermState }) => {
     )
 
     return <>
-       
+
         <article className="customers">
             {
                 filteredUers.map(user => <Customer key={`user--${user.id}`}
