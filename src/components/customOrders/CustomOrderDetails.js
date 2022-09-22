@@ -54,7 +54,7 @@ export const CustomOrderDetails = () => {
         <section>
             <div>
 
-                <button onClick={() => navigate("/orders/")}>See All Orders</button>
+                <button  className="buttons" onClick={() => navigate("/orders/")}>See All Orders</button>
 
             </div>
         </section>

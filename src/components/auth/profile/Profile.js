@@ -118,16 +118,18 @@ export const Profile = () => {
                         } />
                 </div>
             </fieldset>
-            <button
+            <button className="buttons"
                 onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
-                className="btn btn-primary">
+                >
                 Save Profile
             </button>
+        </form>
+        <div>
         {!cakedUserObject.staff
-            ? <button onClick={() => navigate("/customOrders/")}>Create Your Own Cake</button>
+            ? <button className="buttons" onClick={() => navigate("/customOrders/")}>Create Your Own Cake</button>
             : ""
         }
-        </form>
+        </div>
     </>
     )
 }

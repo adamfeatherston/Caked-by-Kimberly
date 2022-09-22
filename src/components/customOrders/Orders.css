@@ -24,3 +24,14 @@
     line-height: 2.75rem;
 }
 
+.search_text{
+    color: rgb(233, 196, 210);
+}
+
+.buttons{
+    color: white;
+    border: solid rgb(178, 200, 188);
+    background-color: rgb(233, 196, 210);
+  
+  }
+
