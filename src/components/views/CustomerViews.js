@@ -2,7 +2,7 @@
 //CSS for visual looks and adding pictures of sample products.
 //provide button with link for customers to navigate to create a custom order page.
 
-import { Link, Outlet, Route, Routes, useNavigate } from "react-router-dom"
+import { Outlet, Route, Routes, } from "react-router-dom"
 import { Profile } from "../auth/profile/Profile"
 import { CustomOrderContainer } from "../customOrders/CustomOrderContainer"
 import { CustomOrderDetails } from "../customOrders/CustomOrderDetails"

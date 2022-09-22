@@ -8,9 +8,9 @@ import { CustomerViews } from "./CustomerViews"
 import { EmployeeViews } from "./EmployeeViews"
 
 export const ApplicationViews = () => {
-	
-    const localCakedUser = localStorage.getItem("caked_user")
-    const cakedUserObject = JSON.parse(localCakedUser)
+
+	const localCakedUser = localStorage.getItem("caked_user")
+	const cakedUserObject = JSON.parse(localCakedUser)
 
 	if (cakedUserObject.staff) {
 		//return employee views
