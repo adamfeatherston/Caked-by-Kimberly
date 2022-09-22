@@ -4,6 +4,7 @@
 //3. Create New Order
 //4. Profile
 //5. Logout
+//6. About (use log with link)
 
 import { Link, useNavigate } from "react-router-dom"
 import "./NavBar.css"
@@ -14,6 +15,10 @@ export const CustomerNavBar = () => {
     return (
         <ul className="navbar">
             <li className="navbar__item active">
+                <Link className="navbar__link" to="/about">About Caked by Kimberly</Link>
+            </li>
+
+            <li className="navbar__item active">
                 <Link className="navbar__link" to="/orders">Your Orders</Link>
             </li>
 
@@ -21,9 +26,6 @@ export const CustomerNavBar = () => {
                 <Link className="navbar__link" to="/customOrders">Create New Order</Link>
             </li>
 
-            <li className="navbar__item active">
-                <Link className="navbar__link" to="/about">About Caked by Kimberly</Link>
-            </li>
 
             <li className="navbar__item active">
                 <Link className="navbar__link" to="/profile">Profile</Link>

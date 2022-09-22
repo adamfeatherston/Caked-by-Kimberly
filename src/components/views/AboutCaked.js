@@ -18,42 +18,36 @@ export const AboutCaked = () => {
                 <img className="image" id="image" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1663770639/Dog_Cake.1_gbdcaj.jpg" alt="Fluffy Dog"></img>
                 <img className="image" id="image" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1663770639/winnie_the_pooh.1_ibx3vb.jpg" alt="Winnie the Pooh"></img>
                 <img className="image" id="image" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1663770639/Cake_in_hand.1_ldkxck.jpg" alt="Piece in hand"></img>
-            </div>
-            <div className="about_text">Contact "caked by Kimberly" by text message: 254-431-6116 or email: cakedbyKimberly@gmail.com
+                <img className="image" id="image" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1663770639/pink_flowers.1_vxkigv.jpg" alt="Pink Flowers"></img>
+                <img className="image" id="image" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1663770640/peanut_butter.1_abwu2c.jpg" alt="Peanut Butter"></img>
+                <img className="image" id="image" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1663770639/little_mermaid.1_skm8je.jpg" alt="Little Mermaid"></img>
+                <img className="image" id="image" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1663770639/chocolate_flowers.1_nofbgi.jpg" alt="Chocolate Flowers"></img>
+                <img className="image" id="image" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1663770639/1_year_birthday_cake.1_gqhtui.jpg" alt="1st Birthday.2"></img>
+                <img className="image" id="image" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1663770639/birthday.1_cdzowr.jpg" alt="Girl Birthday"></img>
+                <img className="image" id="image" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1663770639/lion_king.1_ktpinp.jpg" alt="Lion King"></img>
+                <img className="image" id="image" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1663770640/shark.1_jh8dhc.jpg" alt="Jaws"></img>
             </div>
         </section>
-        <section className="about__2">
-            <div>Order your very own custom cake here:
+        <section>
+            <div>
                 {!cakedUserObject.staff
                     ? <button onClick={() => navigate("/customOrders/")}>Create Your Own Cake</button>
                     : "   Customers see a button directing them to the page to create their own custom cake."
                 }
             </div>
-                <img className="image" id="image" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1663770640/peanut_butter.1_abwu2c.jpg" alt="Piece in hand"></img>
-            <div>Pricing will be calculated based on the design, size, and ingredients in each order.</div>
-        </section>
         <section>
-        <div className="about__1">
-                <img className="image" id="image" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1663770639/pink_flowers.1_vxkigv.jpg" alt="Pink Flowers"></img>
-                <img className="image" id="image" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1663770639/oreo.1_yivyqq.jpg" alt="Oreo"></img>
-                <img className="image" id="image" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1663770639/little_mermaid.1_skm8je.jpg" alt="Little Mermaid"></img>
-                <img className="image" id="image" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1663770639/chocolate_flowers.1_nofbgi.jpg" alt="Chocolate Flowers"></img>
+            <div className="about_text">Contact "caked by Kimberly" by text message: 254-431-6116 or email: cakedbyKimberly@gmail.com
             </div>
         </section>
-            <div>See your own orders here:
-                {!cakedUserObject.staff
-                    ? <button onClick={() => navigate("/orders/")}>See Your Orders</button>
-                    : "   Customers see a button directing them to a the page with a list of their own orders."
-                }
-            </div>
-        <section>
+        <section className="about__2">
+                <div className="about_text">Pricing will be calculated based on the design, size, and ingredients in each order.</div>
+                
         </section>
+     
+        </section>
+          
         <section>
         <div className="about__1">
-                <img className="image" id="image" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1663770639/1_year_birthday_cake.1_gqhtui.jpg" alt="1st Birthday.2"></img>
-                <img className="image" id="image" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1663770639/birthday.1_cdzowr.jpg" alt="Girl Birthday"></img>
-                <img className="image" id="image" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1663770639/winnie_the_pooh.1_ibx3vb.jpg" alt="Lion King"></img>
-                <img className="image" id="image" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1663770640/shark.1_jh8dhc.jpg" alt="Jaws"></img>
             </div>
         </section>
     </>

@@ -1,8 +1,12 @@
 /* Import the google web fonts you want to use 
-(Patua One, Serif) (Comforaa, Arial, sans-serif) (Cookie, cursive)  */
+(Patua One, Serif)
+(Comforaa, Arial, sans-serif) 
+(Cookie, cursive) 
+('Shadows Into Light', cursive)  */
 @import url("https://fonts.googleapis.com/css?family=Comfortaa|Patua+One");
 
 @import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
 
 /*Typography
 --------------------------------------------------------------*/
