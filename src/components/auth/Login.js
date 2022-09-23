@@ -59,7 +59,7 @@ return (
                 <img className="logo" id="logo" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1663814379/Caked_log_edl0zb.jpg" alt="Logo for caked by Kimberly"></img>
                 <h2>Please sign in</h2>
                 <fieldset>
-                    <label htmlFor="inputEmail"> Email address </label>
+                    <label htmlFor="inputEmail"></label>
                     <input type="email"
                         value={email}
                         onChange={evt => set(evt.target.value)}
@@ -68,7 +68,7 @@ return (
                         required autoFocus />
                 </fieldset>
                 <fieldset>
-                    <button type="submit">
+                    <button className="buttons" type="submit">
                         Sign in
                     </button>
                 </fieldset>

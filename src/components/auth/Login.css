@@ -1,6 +1,7 @@
 .h1,
 h1 {
     font-size: 2.5rem;
+    
 }
 
 fieldset {
@@ -59,4 +60,12 @@ fieldset {
 .button--close {
     position: relative;
     bottom: -2rem;
+}
+
+.link--register{
+    font-family: Shadows Into Light, cursive;
+}
+
+.form--login{
+    font-family: Shadows Into Light, cursive;
 }
