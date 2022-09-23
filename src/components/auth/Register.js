@@ -90,7 +90,7 @@ export const Register = (props) => {
                         placeholder="Phone Number" required />
                 </fieldset>
                 <fieldset>
-                    <button type="submit"> Register </button>
+                    <button className="buttons" type="submit"> Register </button>
                 </fieldset>
             </form>
         </main>
