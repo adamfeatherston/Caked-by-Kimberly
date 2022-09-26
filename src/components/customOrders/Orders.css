@@ -25,12 +25,12 @@
 }
 
 .search_text {
-    color: rgb(233, 196, 210);
+    color: #404040;
 }
 
 .buttons {
     color: white;
     border: solid rgb(178, 200, 188);
     background-color: rgb(233, 196, 210);
-
+    font-family: 'Shadows Into Light', cursive;
 }

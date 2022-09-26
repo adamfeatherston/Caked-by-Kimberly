@@ -1,8 +1,14 @@
 .navbar {
+    height: 80px;
+    width: 100%;
+    background: white;
+    color:  rgb(178, 200, 188);
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
-    justify-content: center;
+    align-items: center;
+    padding: 0 2rem;
+    font-size: 1.2rem;
 }
 
 .navbar__item {
@@ -14,6 +20,13 @@
     font-family: Shadows Into Light, serif;
 
 }
+.nav-links {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    grid-gap: 20px;
+    list-style: none;
+    font-family: Shadows Into Light, serif;
+}
 
 .navbar__logout {
     margin-left: auto;
@@ -22,4 +35,21 @@
 .logo__nav {
     height: 3rem;
     width: 3rem;
+}
+
+.navbar__link {
+    text-decoration: none;
+    color:rgb(233, 196, 210);
+    transition: 0.3s all;
+    font-family: Shadows Into Light, serif;
+}
+
+.nav__link:hover {
+    color:rgb(178, 200, 188)
+}
+
+.nav-icon {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
 }
