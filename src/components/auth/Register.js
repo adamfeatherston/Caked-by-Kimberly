@@ -12,7 +12,7 @@
 //  (isStaff is not included on the form as this element is not going to be editable.  Staff users are already in datatabase, all additional profiles will be customers, or isStaff set to false, which will be default setting.  )
 
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import "./Login.css"
 
 export const Register = (props) => {
@@ -93,6 +93,9 @@ export const Register = (props) => {
                     <button className="buttons" type="submit"> Register </button>
                 </fieldset>
             </form>
+            <section className="link--login">
+                <Link to="/login">Already a member</Link>
+            </section>
         </main>
     )
 }
