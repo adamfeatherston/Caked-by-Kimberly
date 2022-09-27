@@ -64,7 +64,7 @@ fieldset {
 
 .link--register{
     font-family: Shadows Into Light, cursive;
-}
+    }
 
 .form--login{
     font-family: Shadows Into Light, cursive;
@@ -73,4 +73,15 @@ fieldset {
 .link--login{
     font-family: Shadows Into Light, cursive;
 }
+
+.login_text {
+    font-family: Shadows Into Light, cursive;
+    justify-items: left;
+}
+
+.background {
+    background-position: bottom;
+    font-weight: bold;
+}
+
 

@@ -41,12 +41,13 @@ export const AboutCaked = () => {
         <section>
             <div className="about_text">
                 {!cakedUserObject.staff
-                    ? <button className="buttons" onClick={() => navigate("/customOrders/")}>Create Your Own Cake</button>
+                    ? <button className="buttons" onClick={() => navigate("/customOrders/")}>Create Your Own</button>
                     : "   Customers see a button directing them to the page to create their own custom cake."
                 }
             </div>
-            <div className="about_text">Follow on instagram at: cakedByKimberly
-            </div>
+            <div className="about_text">
+                <a href="https://www.instagram.com/cakedbykimberly/" target="_blank" rel="noopener"><img className="logo__nav" id="logo__nav" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1664230151/instagram-new-logo-2016_vjwlta.png" alt="Logo for caked by Kimberly"></img></a>
+                </div>
             <div className="about_text">Contact "caked by Kimberly" by text message: 254-431-6116 or email: cakedbyKimberly@gmail.com
             </div>
             <div className="about_text">Pricing will be calculated based on the design, size, and ingredients in each order.</div>

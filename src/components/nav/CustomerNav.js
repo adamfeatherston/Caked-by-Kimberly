@@ -9,7 +9,6 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import "./NavBar.css"
-// import { FiMenu, FiX } from `react-icons/fi`;
 
 export const CustomerNavBar = () => {
     const navigate = useNavigate()
@@ -17,15 +16,9 @@ export const CustomerNavBar = () => {
 
     return (
         <nav className="navbar">
-            {/* <div onClick={() => setOpen(!open)} className="nav-icon">
-                {open ? <FiX /> : <FiMenu />}
-            </div> */}
             <Link className="navbar__item navbar__logo" to="/about" onClick={() => setOpen(false)}><img className="logo__nav" id="logo__nav" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1663814379/Caked_log_edl0zb.jpg" alt="Logo for caked by Kimberly"></img></Link>
             <ul className={open ? `nav-links active` : `nav-links`}>
-                <li className="navbar__item navbar__logo">
-                    <Link className="navbar__link" to="/about" onClick={() => setOpen(false)}><img className="logo__nav" id="logo__nav" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1663814379/Caked_log_edl0zb.jpg" alt="Logo for caked by Kimberly"></img></Link>
-                </li>
-
+              
                 <li className="navbar__item active">
                     <Link className="navbar__link" to="/orders" onClick={() => setOpen(false)}>Your Orders</Link>
                 </li>

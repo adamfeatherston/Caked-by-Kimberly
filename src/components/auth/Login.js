@@ -57,7 +57,10 @@ export const Login = () => {
                 <form className="form--login" onSubmit={handleLogin}>
                     <h1>Caked by Kimberly</h1>
                     <img className="logo" id="logo" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1663814379/Caked_log_edl0zb.jpg" alt="Logo for caked by Kimberly"></img>
-                    <h2>Please sign in</h2>
+                    <div className="background" style={{
+                        backgroundImage: `url("https://res.cloudinary.com/dm5alwbmv/image/upload/v1664302928/Hazel1Cake.2_ff7p9f.jpg")`
+                    }}>
+                    <div>Please sign in</div>
                     <fieldset>
                         <label htmlFor="inputEmail"></label>
                         <input type="email"
@@ -72,23 +75,16 @@ export const Login = () => {
                             Sign in
                         </button>
                     </fieldset>
+                    </div>
                 </form>
             </section>
             <section className="link--register">
                 <Link to="/register">Not a member yet?</Link>
             </section>
-            <section>
-                <div className="about_text">Follow on instagram at: cakedByKimberly
-                </div>
-                <div className="about_text">Contact "caked by Kimberly" by email: cakedbyKimberly@gmail.com
-                </div>
-            </section>
-            <section>
-                <div className="about__1">
-                    <img className="image" id="image" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1663770639/Dog_Cake.1_gbdcaj.jpg" alt="Fluffy Dog"></img>
-                    <img className="image" id="image" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1663770639/winnie_the_pooh.1_ibx3vb.jpg" alt="Winnie the Pooh"></img>
-                    <img className="image" id="image" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1663770639/pink_flowers.1_vxkigv.jpg" alt="Pink Flowers"></img>
-                <img className="image" id="image" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1663770640/peanut_butter.1_abwu2c.jpg" alt="Peanut Butter"></img>
+            <section className="login_text">
+                
+                <div>
+                <a href="https://www.instagram.com/cakedbykimberly/" target="_blank" rel="noopener"><img className="logo__nav" id="logo__nav" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1664230151/instagram-new-logo-2016_vjwlta.png" alt="Logo for caked by Kimberly"></img></a>
                 </div>
             </section>
         </main>
