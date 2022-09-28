@@ -5,9 +5,9 @@
 import { Outlet, Route, Routes, } from "react-router-dom"
 import { Profile } from "../auth/profile/Profile"
 import { CustomOrderContainer } from "../customOrders/CustomOrderContainer"
-import { CustomOrderDetails } from "../customOrders/CustomOrderDetails"
-import { CustomOrderEdit } from "../customOrders/CustomOrderEdit"
-import { CustomOrderForm } from "../customOrders/CustomOrderForm"
+import { CustomOrderDetails } from "../customOrders/CustomCakeOrderDetails"
+import { CustomOrderEdit } from "../customOrders/CustomCakeOrderEdit"
+import { CustomOrderForm } from "../customOrders/CustomCakeOrderForm"
 import { AboutCaked } from "./AboutCaked"
 import "./CustomerViews.css"
 

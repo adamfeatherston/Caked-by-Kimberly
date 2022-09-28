@@ -80,8 +80,15 @@ fieldset {
 }
 
 .background {
+    justify-content: center;
+    background-image: none;
     background-position: bottom;
     font-weight: bold;
+}
+
+body,
+.body{
+background-image: image();
 }
 
 

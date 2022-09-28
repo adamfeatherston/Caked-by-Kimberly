@@ -18,7 +18,7 @@
 
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { CustomOrder } from "./CustomOrder"
+import { CustomOrder } from "./CustomCakeOrder"
 import "./Orders.css"
 
 export const CustomOrderList = ({ searchTermState }) => {

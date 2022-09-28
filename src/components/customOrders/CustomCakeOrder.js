@@ -41,7 +41,7 @@ export const CustomOrder = ({ id, fullName, date, eaters, description, beingBake
                         getAllOrders()
                         window.alert("Your order was successfully deleted")
                     })
-            }} className="order__delete">Delete Order</button>
+            }} className="button__action">Delete Order</button>
         }
         else {
             return ""
