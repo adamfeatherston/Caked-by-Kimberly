@@ -52,15 +52,15 @@ export const Login = () => {
     }
 
     return (
-        <main className="container--login">
+        <main className="container--login" >
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
                     <h1>Caked by Kimberly</h1>
                     <img className="logo" id="logo" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1663814379/Caked_log_edl0zb.jpg" alt="Logo for caked by Kimberly"></img>
+                    <div>Please sign in</div>
                     <div className="background" style={{
                         backgroundImage: `url("https://res.cloudinary.com/dm5alwbmv/image/upload/v1664302928/Hazel1Cake.2_ff7p9f.jpg")`
                     }}>
-                    <div>Please sign in</div>
                     <fieldset>
                         <label htmlFor="inputEmail"></label>
                         <input type="email"

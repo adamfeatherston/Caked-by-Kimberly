@@ -1,3 +1,14 @@
 .form-group{
     font-family: Shadows Into Light, cursive;
 }
+
+.button__action {
+    color: white;
+    border: solid  rgb(233, 196, 210);
+    background-color: rgb(178, 200, 188);
+    font-family: 'Shadows Into Light', cursive;
+}
+
+.tocreate {
+    padding-top: 1ex;
+}
