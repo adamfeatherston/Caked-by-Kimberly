@@ -102,7 +102,7 @@ export const CustomOrderEdit = () => {
                 navigate("/orders/")
                 confirmAlert()
             })
-           
+
     }
 
 
@@ -285,7 +285,7 @@ export const CustomOrderEdit = () => {
             </fieldset>
             <button
                 onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
-                className="buttons">
+                className="button__action">
                 Save Your Changes
             </button>
             {cakedUserObject.staff
@@ -306,8 +306,8 @@ export const CustomOrderEdit = () => {
             }
 
         </form>
-
-        <button className="buttons" onClick={() => navigate("/orders/")}>See All Orders</button>
-
+        <div className="toOrders">
+            <button className="buttons" onClick={() => navigate("/orders/")}>See All Orders</button>
+        </div>
     </>)
 }
