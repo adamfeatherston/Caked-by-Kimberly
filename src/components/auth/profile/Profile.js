@@ -64,7 +64,6 @@ export const Profile = () => {
 
     return (<>
 
-
         <div className={`${feedback.includes("Error") ? "error" : "feedback"} ${feedback === "" ? "invisible" : "visible"}`}>
             {feedback}
         </div>
@@ -125,10 +124,10 @@ export const Profile = () => {
                 Save Profile
             </button>
         </form>
-        
+
         <div className="tocreate">
             {!cakedUserObject.staff
-                ? <button className="buttons" onClick={() => navigate("/customOrders/")}>Create Your Own Cake</button>
+                ? <button className="buttons" onClick={() => navigate("/chooseType/")}>Create Your Own</button>
                 : ""
             }
         </div>

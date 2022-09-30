@@ -1,4 +1,4 @@
-//Module for users(customers) to view and edit their CustomOrders.
+//Module for users(customers) to view and edit their Custom Cookie Orders.
 //1. Provide intial state from the "customOrders" array of objects (view).
 //2. Get each individual customOrder from API and edit state (edit).
 //3. Method for user to save new CustomOrder information
@@ -12,19 +12,16 @@ import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import "./Form.css"
 
-export const CustomOrderEdit = () => {
+export const CustomCookieEdit = () => {
     const [order, edit] = useState({
         dateNeeded: "",
         address: "",
-        numberOfEaters: (0),
         description: "",
         messageOnCake: "",
         beingBaked: false
     })
-    const [cakeDesigns, updateDesigns] = useState([])
-    const [cakeFlavors, updateFlavors] = useState([])
-    const [cakeIcings, updateIcings] = useState([])
-    const [cakeFillings, updateFillings] = useState([])
+    const [cupCookieNumbers, updateNumbers] = useState([])
+    const [cookieFlavors, updateFlavors] = useState([])
     const { orderId } = useParams()
     const navigate = useNavigate()
 
@@ -33,15 +30,15 @@ export const CustomOrderEdit = () => {
     const cakedUserObject = JSON.parse(localCakedUser)
 
     useEffect(() => {
-        fetch(`http://localhost:8088/cakeDesigns`)
+        fetch(`http://localhost:8088/cupCookieNumbers`)
             .then(response => response.json())
-            .then((productDesignsArray) => {
-                updateDesigns(productDesignsArray)
+            .then((cupCookieNumbersArray) => {
+                updateNumbers(cupCookieNumbersArray)
             })
     }, [])
 
     useEffect(() => {
-        fetch(`http://localhost:8088/cakeFlavors`)
+        fetch(`http://localhost:8088/cookieFlavors`)
             .then(response => response.json())
             .then((productFlavorsArray) => {
                 updateFlavors(productFlavorsArray)
@@ -49,24 +46,7 @@ export const CustomOrderEdit = () => {
     }, [])
 
     useEffect(() => {
-        fetch(`http://localhost:8088/cakeIcings`)
-            .then(response => response.json())
-            .then((productIcingssArray) => {
-                updateIcings(productIcingssArray)
-            })
-    }, [])
-
-    useEffect(() => {
-        fetch(`http://localhost:8088/cakeFillings`)
-            .then(response => response.json())
-            .then((productFillingsArray) => {
-                updateFillings(productFillingsArray)
-            })
-    }, [])
-
-
-    useEffect(() => {
-        fetch(`http://localhost:8088/cakeOrders/${orderId}`)
+        fetch(`http://localhost:8088/cupCakeOrders/${orderId}`)
             .then(response => response.json())
             .then((data) => {
                 edit(data)
@@ -76,7 +56,7 @@ export const CustomOrderEdit = () => {
     const handleSaveButtonClick = (event) => {
         event.preventDefault()
 
-        return fetch(`http://localhost:8088/cakeOrders/${order.id}`, {
+        return fetch(`http://localhost:8088/cookieOrders/${order.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -107,11 +87,11 @@ export const CustomOrderEdit = () => {
         </div>
 
         <form className="orderForm" id="edit form">
-            <h2 className="orderForm__title">Create Your Custom Cake</h2>
+            <h2 className="orderForm__title">Create Your Custom Cookies</h2>
 
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name">When is the cake needed?</label>
+                    <label htmlFor="name">When are the Cookies needed?</label>
                     <input
                         required autoFocus
                         type="date"
@@ -131,7 +111,7 @@ export const CustomOrderEdit = () => {
 
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="address">Where is the Cake needed?</label>
+                    <label htmlFor="address">Where are the Cookies needed?</label>
                     <input
                         required autoFocus
                         type="text"
@@ -151,26 +131,28 @@ export const CustomOrderEdit = () => {
 
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="eaters">How Many People need to be served?</label>
-                    <input
-                        required autoFocus
-                        type="text"
-                        className="form-control"
-                        placeholder="Enter Number"
-                        value={order.numberOfEaters}
+                    <label htmlFor="eaters">Select the number of Cup Cakes Needed</label>
+                    <select id="eaters" value={order.cupCookieNumberId}
                         onChange={
                             (evt) => {
                                 const copy = { ...order }
-                                copy.numberOfEaters = evt.target.value
+                                copy.cupCookieNumberId = evt.target.value
                                 edit(copy)
-                            }
-                        } />
+                            }}
+                    >
+                        <option value={0}>Please choose a how many...</option>
+                        {
+                            cupCookieNumbers.map(number => {
+                                return <option value={number.id}>{number.number}</option>
+                            })
+                        }
+                    </select>
                 </div>
             </fieldset>
 
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="description">Description of the Cake:</label>
+                    <label htmlFor="description">Description of the Cup Cakes:</label>
                     <input
                         required autoFocus
                         type="text"
@@ -189,7 +171,7 @@ export const CustomOrderEdit = () => {
 
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="message">Is there a message/phrase you would like on the cake?</label>
+                    <label htmlFor="message">Is there a message/phrase you would like on each Cookie?</label>
                     <input
                         required autoFocus
                         type="text"
@@ -205,85 +187,22 @@ export const CustomOrderEdit = () => {
                         } />
                 </div>
             </fieldset>
-
+          
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="Design">Select A Cake Design</label>
-                    <select id="Design" value={order.cakeDesignId}
+                    <label htmlFor="Flavor">Select A Cup Cake Flavor</label>
+                    <select id="Flavor" value={order.cookieFlavorId}
                         onChange={
                             (evt) => {
                                 const copy = { ...order }
-                                copy.cakeDesignId = evt.target.value
-                                edit(copy)
-                            }}
-                    >
-                        <option value={0}>Please choose a cake design...</option>
-                        {
-                            cakeDesigns.map(design => {
-                                return <option value={design.id}>{design.design}</option>
-                            })
-                        }
-                    </select>
-                </div>
-            </fieldset>
-
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="Flavor">Select A Cake Flavor</label>
-                    <select id="Flavor" value={order.cakeFlavorId}
-                        onChange={
-                            (evt) => {
-                                const copy = { ...order }
-                                copy.cakeFlavorId = evt.target.value
+                                copy.cookieFlavorId = evt.target.value
                                 edit(copy)
                             }}
                     >
                         <option value={0}>Please choose a flavor...</option>
                         {
-                            cakeFlavors.map(flavor => {
+                            cookieFlavors.map(flavor => {
                                 return <option value={flavor.id}>{flavor.flavor}</option>
-                            })
-                        }
-                    </select>
-                </div>
-            </fieldset>
-
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="Icing">Select A Cake Icing</label>
-                    <select id="Icing" value={order.cakeIcingId}
-                        onChange={
-                            (evt) => {
-                                const copy = { ...order }
-                                copy.cakeIcingId = evt.target.value
-                                edit(copy)
-                            }}
-                    >
-                        <option value={0}>Please choose an icing...</option>
-                        {
-                            cakeIcings.map(icing => {
-                                return <option value={icing.id}>{icing.icing}</option>
-                            })
-                        }
-                    </select>
-                </div>
-            </fieldset>
-
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="Filling">Select A Cake Filling</label>
-                    <select id="Filling" value={order.cakeFillingId}
-                        onChange={
-                            (evt) => {
-                                const copy = { ...order }
-                                copy.cakeFillingId = evt.target.value
-                                edit(copy)
-                            }}
-                    >
-                        <option value={0}>Please choose a filling...</option>
-                        {
-                            cakeFillings.map(filling => {
-                                return <option value={filling.id}>{filling.filling}</option>
                             })
                         }
                     </select>

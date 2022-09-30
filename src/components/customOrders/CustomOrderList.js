@@ -24,7 +24,6 @@ import "./Orders.css"
 export const CustomOrderList = ({ searchTermState }) => {
     const [orders, setOrders] = useState([])
     const [filteredOrders, setFiltered] = useState([])
-    const [sorted, setSorted] = useState([])
     const [baked, setBaked] = useState(false)
 
 
@@ -123,7 +122,7 @@ export const CustomOrderList = ({ searchTermState }) => {
             }
         </article>
         {!cakedUserObject.staff
-            ? <button className="buttons" onClick={() => navigate("/customOrders/")}>Create Your Own Cake</button>
+            ? <button className="buttons" onClick={() => navigate("/chooseType/")}>Create Your Own</button>
             : ""
         }
     </>

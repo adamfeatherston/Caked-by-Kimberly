@@ -30,9 +30,11 @@ export const Login = () => {
 
     }
 
+    
     const handleLogin = (e) => {
         e.preventDefault()
-
+       
+      
         return fetch(`http://localhost:8088/users?email=${email}`)
             .then(res => res.json())
             .then(foundUsers => {
@@ -46,7 +48,7 @@ export const Login = () => {
                     userTypeNav()
                 }
                 else {
-                    window.alert("Invalid login")
+                    window.alert("Invalid login. Please check email address and try again.")
                 }
             })
     }
@@ -56,10 +58,10 @@ export const Login = () => {
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
                     <h1>Caked by Kimberly</h1>
-                    <img className="logo" id="logo" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1663814379/Caked_log_edl0zb.jpg" alt="Logo for caked by Kimberly"></img>
+                    <img className="logo" id="logo" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1663814379/Caked%20by%20Kimberly/Caked_log_edl0zb.jpg" alt="Logo for caked by Kimberly"></img>
                     <div>Please sign in</div>
                     <div className="background" style={{
-                        backgroundImage: `url("https://res.cloudinary.com/dm5alwbmv/image/upload/v1664302928/Hazel1Cake.2_ff7p9f.jpg")`
+                        backgroundImage: `url("https://res.cloudinary.com/dm5alwbmv/image/upload/v1664302928/Caked%20by%20Kimberly/Hazel1Cake.2_ff7p9f.jpg")`
                     }}>
                     <fieldset>
                         <label htmlFor="inputEmail"></label>
@@ -84,7 +86,7 @@ export const Login = () => {
             <section className="login_text">
                 
                 <div>
-                <a href="https://www.instagram.com/cakedbykimberly/" target="_blank" rel="noopener"><img className="logo__nav" id="logo__nav" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1664230151/instagram-new-logo-2016_vjwlta.png" alt="Logo for caked by Kimberly"></img></a>
+                <a href="https://www.instagram.com/cakedbykimberly/" target="_blank" rel="noopener"><img className="logo__nav" id="logo__nav" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1664230151/Caked%20by%20Kimberly/instagram-new-logo-2016_vjwlta.png" alt="Logo for caked by Kimberly"></img></a>
                 </div>
             </section>
         </main>

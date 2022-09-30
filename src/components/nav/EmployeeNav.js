@@ -16,7 +16,7 @@ export const EmployeeNavBar = () => {
 
     return (
         <nav className="navbar">
-            <Link className="navbar__item navbar__logo" to="/about" onClick={() => setOpen(false)}><img className="logo__nav" id="logo__nav" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1663814379/Caked_log_edl0zb.jpg" alt="Logo for caked by Kimberly"></img></Link>
+            <Link className="navbar__item navbar__logo" to="/about" onClick={() => setOpen(false)}><img className="logo__nav" id="logo__nav" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1663814379/Caked%20by%20Kimberly/Caked_log_edl0zb.jpg" alt="Logo for caked by Kimberly"></img></Link>
             <ul className={open ? `nav-links active` : `nav-links`}>
 
                 <li className="navbar__item active">

@@ -13,10 +13,11 @@ code {
 }
 
 .feedback {
-  border: 1px dotted cadetblue;
+  border: 1px dotted  rgb(233, 196, 210);
   padding: 1rem;
-  background-color: rgb(218, 230, 247);
-  position: absolute;
+  background-color:rgb(178, 200, 188);
+  font-family: "Cookie", serif;
+  position: fixed;
   top: 20%;
   left: 50%;
   width: 70%;
