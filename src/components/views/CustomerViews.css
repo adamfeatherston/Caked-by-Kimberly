@@ -93,5 +93,40 @@ p {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding-left: 35px;
   padding-top: 50px;
+}
+
+.cake_item {
+   justify-content: center;
+}
+
+.create_cake {
+  justify-content: center;
+}
+
+.create_cupCake {
+  padding-left: 3px;
+  justify-content: center;
+}
+
+.create_cookie {
+  padding-left: 15px;
+  justify-content: center;
+}
+
+.cup_photo {
+  padding-left: 15px;
+}
+
+.cake_btn {
+  padding-left: 1px;
+}
+
+.cup_btn {
+  padding-left: 0px;
+}
+
+.cook_btn {
+  padding-left: 3px;
 }

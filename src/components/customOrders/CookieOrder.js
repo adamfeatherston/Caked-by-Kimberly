@@ -1,4 +1,4 @@
-//Module for displaying data about a single customOrder:
+//Module for displaying data about a single cup cake Order:
 //1. JSX for customers and employees to see all data in the order
 //  a. fetch APT from customOrders
 //2. checkbox for employees only that provides user(employee) ability to mark order as being baked.
@@ -11,7 +11,7 @@
 
 import { Link } from "react-router-dom"
 import "./Orders.css"
-export const CustomOrder = ({ id, fullName, date, eaters, description, beingBaked, getAllOrders }) => {
+export const CookieOrder = ({ cookId, fullName, date, eaters, description, beingBaked, getAllOrders }) => {
 
     const localCakedUser = localStorage.getItem("caked_user")
     const cakedUserObject = JSON.parse(localCakedUser)
@@ -32,7 +32,7 @@ export const CustomOrder = ({ id, fullName, date, eaters, description, beingBake
      
         if (!cakedUserObject.staff) {
             return <button onClick={() => {
-                fetch(`http://localhost:8088/cakeOrders/${id}`, {
+                fetch(`http://localhost:8088/cookieOrders/${cookId}`, {
                     method: "DELETE"
                 })
 
@@ -46,12 +46,12 @@ export const CustomOrder = ({ id, fullName, date, eaters, description, beingBake
             return ""
         }
     }
- 
+
     return (<>
 
         <section className="order">
             <header>
-                <Link to={`/orders/${id}`}>See details for Order #: {id}</Link>
+                <Link to={`/cookieOrders/${cookId}`}>See details for Order #: {cookId}</Link>
             </header>
             <div>order placed by: {fullName}</div>
             <div>order needed on: {date}</div>
@@ -61,8 +61,3 @@ export const CustomOrder = ({ id, fullName, date, eaters, description, beingBake
         </section>
     </>)
 }
-
-
-
-
-

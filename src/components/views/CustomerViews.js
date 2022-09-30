@@ -35,6 +35,7 @@ export const CustomerViews = () => {
 				<Route path="profile" element={<Profile />} />
 				<Route path="orders" element={<CustomOrderContainer />} />
 				<Route path="orders/:orderId" element={<CustomOrderDetails />} />
+				<Route path="cupCakeOrders/:orderId" element={<CustomOrderDetails />} />
 				<Route path="customOrders" element={<CustomOrderForm />} />
 				<Route path="cookieOrders" element={<CustomCookieOrderForm />} />
 				<Route path="cupCakeOrders" element={<CustomCupCakeOrderForm />} />
