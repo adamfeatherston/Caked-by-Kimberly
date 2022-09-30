@@ -10,8 +10,7 @@
 //  d. POST API state changes to customOrders
 
 import { Link } from "react-router-dom"
-
-
+import "./Orders.css"
 export const CustomOrder = ({ id, fullName, date, eaters, description, beingBaked, getAllOrders }) => {
 
     const localCakedUser = localStorage.getItem("caked_user")
@@ -30,7 +29,7 @@ export const CustomOrder = ({ id, fullName, date, eaters, description, beingBake
     }
 
     const deleteButton = () => {
-
+     
         if (!cakedUserObject.staff) {
             return <button onClick={() => {
                 fetch(`http://localhost:8088/cakeOrders/${id}`, {
@@ -38,8 +37,8 @@ export const CustomOrder = ({ id, fullName, date, eaters, description, beingBake
                 })
 
                     .then(() => {
-                        getAllOrders()
                         window.alert("Your order was successfully deleted")
+                        getAllOrders()
                     })
             }} className="button__action">Delete Order</button>
         }
@@ -47,7 +46,9 @@ export const CustomOrder = ({ id, fullName, date, eaters, description, beingBake
             return ""
         }
     }
-    return <>
+
+
+    return (<>
 
         <section className="order">
             <header>
@@ -59,7 +60,7 @@ export const CustomOrder = ({ id, fullName, date, eaters, description, beingBake
             <div>description: {description} </div>
             <footer>  {orderIsBeingBaked()} </footer>
         </section>
-    </>
+    </>)
 }
 
 

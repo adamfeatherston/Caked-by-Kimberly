@@ -10,6 +10,7 @@ import { CustomOrderContainer } from "../customOrders/CustomOrderContainer"
 import { CustomOrderDetails } from "../customOrders/CustomCakeOrderDetails"
 import { CustomOrderEdit } from "../customOrders/CustomCakeOrderEdit"
 import { AboutCaked } from "./AboutCaked"
+import { CustomCupCakeEdit } from "../customOrders/CustomCupcakeEdit"
 import "./CustomerViews.css"
 
 export const EmployeeViews = () => {
@@ -21,7 +22,7 @@ export const EmployeeViews = () => {
 					<section className="caked_main" id="caked_main">
 						<h1>Caked by Kimberly</h1>
 
-						<img className="logo" id="logo" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1663814379/Caked_log_edl0zb.jpg" alt="Logo for caked by Kimberly"></img>
+						<img className="logo" id="logo" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1663814379/Caked%20by%20Kimberly/Caked_log_edl0zb.jpg" alt="Logo for caked by Kimberly"></img>
 
 					</section>
 					<Outlet />
@@ -33,6 +34,7 @@ export const EmployeeViews = () => {
 				<Route path="orders" element={<CustomOrderContainer />} />
 				<Route path="customers" element={<CustomerContainer />} />
 				<Route path="orders/edit/:orderId/" element={<CustomOrderEdit />} />
+				<Route path="cupCakeOrders/edit/:orderId/" element={<CustomCupCakeEdit />} />
 				<Route path="about" element={<AboutCaked />} />
 			</Route>
 		</Routes>

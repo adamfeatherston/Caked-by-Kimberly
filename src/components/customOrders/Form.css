@@ -42,3 +42,24 @@
 .toOrders {
     padding-top: 1ex;
 }
+
+.feedback {
+    border: 1px dotted  rgb(233, 196, 210);
+    padding: 1rem;
+    background-color:rgb(178, 200, 188);
+    font-family: "Cookie", serif;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    width: 70%;
+    transform: translate(-50%, -50%);
+    animation: 1s slideDown;
+  }
+
+  .invisible {
+    display: none;
+  }
+  
+  .visible {
+    display: block;
+  }

@@ -87,8 +87,32 @@ fieldset {
 }
 
 body,
+
 .body{
 background-image: image();
 }
+
+.alert {
+    background-color: lightgray;
+   }
+   
+   .alert__title {
+       font-family: "Cookie", serif;
+       font-size: x-large;
+       font-weight: bold;
+       color: black;
+   }
+   
+   .alert__body {
+       font-family: "Cookie", serif;
+       font-size: large;
+   }
+   
+   .alert__btn {
+       color: white;
+       border: solid rgb(178, 200, 188);
+       background-color: rgb(233, 196, 210);
+       font-family: 'Shadows Into Light', cursive;
+   }
 
 

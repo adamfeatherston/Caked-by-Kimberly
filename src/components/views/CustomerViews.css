@@ -88,3 +88,10 @@ p {
   background-color: rgb(233, 196, 210);
   font-family: 'Shadows Into Light', cursive;
 }
+
+.create_links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 50px;
+}
