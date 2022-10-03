@@ -27,12 +27,10 @@ export const CupCakeOrderList = ({ searchTermState }) => {
     const [filteredOrders, setFiltered] = useState([])
     const [baked, setBaked] = useState(false)
 
-
+    const navigate = useNavigate()
     const localCakedUser = localStorage.getItem("caked_user")
     const cakedUserObject = JSON.parse(localCakedUser)
-
-    const navigate = useNavigate()
-
+ 
     const getAllOrders = () => {
         fetch(`http://localhost:8088/cupCakeOrders?_sort=dateNeeded&_expand=user&_expand=cupCookieNumber`)
             .then(response => response.json())
@@ -97,14 +95,15 @@ export const CupCakeOrderList = ({ searchTermState }) => {
 
     return <>
     <h1>Cup Cake Orders</h1>
-        {cakedUserObject.staff
+
+    {cakedUserObject.staff
             ? <button className="buttons" onClick={() => {
                 setBaked(!baked)
             }} >
                 {
                     baked
-                        ? "Show All Orders"
-                        : "Orders Not Baked"
+                        ? "Show All CupCake Orders"
+                        : "CupCake Orders Not Baked"
                 } </button>
             :""
         }
@@ -123,7 +122,10 @@ export const CupCakeOrderList = ({ searchTermState }) => {
                 )
             }
         </article>
-       
+        {!cakedUserObject.staff
+            ? <button className="buttons" onClick={() => navigate("/cupCakeOrders/")}>Create Cup Cakes</button>
+            : ""
+        }
     </>
 
 }

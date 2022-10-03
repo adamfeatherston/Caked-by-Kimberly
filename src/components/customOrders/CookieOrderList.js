@@ -98,18 +98,18 @@ export const CookieOrderList = ({ searchTermState }) => {
 
     return <>
     <h1>Cookie Orders</h1>
-        {cakedUserObject.staff
+
+    {cakedUserObject.staff
             ? <button className="buttons" onClick={() => {
                 setBaked(!baked)
             }} >
                 {
                     baked
-                        ? "Show All Orders"
-                        : "Orders Not Baked"
+                        ? "Show All Cookie Orders"
+                        : "Cookie Orders Not Baked"
                 } </button>
             :""
         }
-
         <article className="orders">
             {
                 filteredOrders.map(order => <CookieOrder key={`cuporder--${order.id}`}
@@ -125,7 +125,7 @@ export const CookieOrderList = ({ searchTermState }) => {
             }
         </article>
         {!cakedUserObject.staff
-            ? <button className="buttons" onClick={() => navigate("/chooseType/")}>Create Your Own</button>
+            ? <button className="buttons" onClick={() => navigate("/cookieOrders/")}>Create Cookies</button>
             : ""
         }
     </>

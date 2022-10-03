@@ -11,7 +11,7 @@ export const CustomOrderDetails = () => {
     const orderIsBeingBaked = () => {
         if (order.beingBaked === false) {
             return <div>
-                <Link to={`/orders/edit/${orderId}`}>Click to edit Order #: {orderId}</Link>
+                <Link to={`/orders/edit/${orderId}`}>Click to edit Cake Order #: {orderId}</Link>
             </div>
         }
         else {
@@ -36,7 +36,7 @@ export const CustomOrderDetails = () => {
 
     return <>
         <section className="order">
-            <header className="order__header">Order # {order.id}</header>
+            <header className="order__header">Cake Order # {order.id}</header>
             <header className="order__header">Ordered By: {order?.user?.fullName}</header>
             <div>Date Needed: {order.dateNeeded}</div>
             <div>Where is cake needed: {order.address}</div>

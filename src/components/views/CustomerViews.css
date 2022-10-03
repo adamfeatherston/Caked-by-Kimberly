@@ -10,7 +10,7 @@ input,
 select,
 textarea {
   color: #404040;
-  font-family: "Cookie", cursive;
+  font-family: "Patua One", Arial;
   font-size: 20px;
   line-height: 1.5;
   background-color: white;
@@ -61,11 +61,18 @@ p {
 
 }
 
+.image_1 {
+  height: 190px;
+  width: 130px;
+  padding-right: 3rem;
+
+}
+
 .about_text {
   text-align: center;
   color: #404040;
   font-family: "Cookie", cursive;
-  font-size: 35px;
+  font-size: 28px;
   line-height: 1.5;
 }
 
@@ -87,6 +94,10 @@ p {
   border: solid rgb(178, 200, 188);
   background-color: rgb(233, 196, 210);
   font-family: 'Shadows Into Light', cursive;
+}
+
+.buttons:not(:disabled):hover {
+  transform: scale(1.2) translateY(.125rem);
 }
 
 .create_links {
@@ -129,4 +140,12 @@ p {
 
 .cook_btn {
   padding-left: 3px;
+}
+
+.about_contact {
+  text-align: center;
+  color: #404040;
+  font-family: "Cookie", cursive;
+  font-size: 20px;
+  line-height: 1.5;
 }

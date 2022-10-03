@@ -9,12 +9,20 @@
     font-family: 'Shadows Into Light', cursive;
 }
 
+.buttons:not(:disabled):hover {
+    transform: scale(1.2) translateY(.125rem);
+  }
+
 .button__action {
     color: white;
     border: solid  rgb(233, 196, 210);
     background-color: rgb(178, 200, 188);
     font-family: 'Shadows Into Light', cursive;
 }
+
+.button__action:not(:disabled):hover {
+    transform: scale(1.2) translateY(.125rem);
+  }
 
 .alert {
  background-color: lightgray;
@@ -38,6 +46,10 @@
     background-color: rgb(233, 196, 210);
     font-family: 'Shadows Into Light', cursive;
 }
+
+.alert__btn:not(:disabled):hover {
+    transform: scale(1.2) translateY(.125rem);
+  }
 
 .toOrders {
     padding-top: 1ex;
@@ -63,3 +75,12 @@
   .visible {
     display: block;
   }
+
+  .form-drop {
+    color: #404040;
+    font-family: "Cookie", serif;
+    font-size: 20px;
+    line-height: 1.5;
+    padding-right: 20px;
+    background-color: lightgray;
+    }

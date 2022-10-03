@@ -11,7 +11,7 @@ export const ChooseGoodyType = () => {
 
             <section className="create_cake">
                 <div className="cake_photo">
-                    <img className="image" id="image" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1663770639/Caked%20by%20Kimberly/chocolate_flowers.1_nofbgi.jpg" alt="Chocolate Flowers"></img>
+                    <img className="image_1" id="image" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1664302928/Caked%20by%20Kimberly/Hazel1Cake.2_ff7p9f.jpg" alt="1st birthday.2"></img>
                 </div>
                 <div className="cake_btn">
                     <button className="buttons" onClick={() => navigate("/customOrders/")}>Create A Cake</button>
@@ -35,7 +35,7 @@ export const ChooseGoodyType = () => {
                     <button className="buttons" onClick={() => navigate("/cookieOrders/")}>Create Cookies</button>
                 </div>
             </section>
-
         </article>
+        <div className="about_text">Pricing will be calculated based on the design, size, and ingredients in each order.</div>
     </>
 }

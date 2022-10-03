@@ -119,7 +119,7 @@ export const CustomCupCakeOrderForm = () => {
 
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name">When are the Cup Cakes needed?</label>
+                    <label htmlFor="name">When are the CupCakes needed?</label>
                     <input
                         required autoFocus
                         type="date"
@@ -139,7 +139,7 @@ export const CustomCupCakeOrderForm = () => {
 
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="address">Where are the Cup Cakes needed?</label>
+                    <label htmlFor="address">Where are the CupCakes needed?</label>
                     <input
 
                         type="text"
@@ -158,7 +158,7 @@ export const CustomCupCakeOrderForm = () => {
 
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="eaters">Select the number of Cup Cakes Needed</label>
+                    <label htmlFor="eaters">Select the number of CupCakes Needed:  </label>
                     <select id="eaters" value={order.cupCookieNumberId}
                         onChange={
                             (evt) => {
@@ -167,7 +167,7 @@ export const CustomCupCakeOrderForm = () => {
                                 update(copy)
                             }}
                     >
-                        <option value={0}>Please choose a how many...</option>
+                        <option className="form-drop" value={0}>Please choose a how many...</option>
                         {
                             cupCookieNumbers.map(number => {
                                 return <option value={number.id}>{number.number}</option>
@@ -179,7 +179,7 @@ export const CustomCupCakeOrderForm = () => {
 
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="description">Description of the Cup Cakes</label>
+                    <label htmlFor="description">Description of the CupCakes:</label>
                     <input
 
                         type="text"
@@ -198,7 +198,7 @@ export const CustomCupCakeOrderForm = () => {
 
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="message">Is there a message/phrase you would like on each Cup Cake?</label>
+                    <label htmlFor="message">Is there a message/phrase you would like on each CupCake?</label>
                     <input
 
                         type="text"
@@ -217,7 +217,7 @@ export const CustomCupCakeOrderForm = () => {
 
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="Flavor">Select A Cup Cake Flavor</label>
+                    <label htmlFor="Flavor">Select A CupCake Flavor:  </label>
                     <select id="Flavor" value={order.cakeFlavorId}
                         onChange={
                             (evt) => {
@@ -226,7 +226,7 @@ export const CustomCupCakeOrderForm = () => {
                                 update(copy)
                             }}
                     >
-                        <option value={0}>Please choose a flavor...</option>
+                        <option className="form-drop" value={0}>Please choose a flavor...</option>
                         {
                             cakeFlavors.map(flavor => {
                                 return <option value={flavor.id}>{flavor.flavor}</option>
@@ -238,7 +238,7 @@ export const CustomCupCakeOrderForm = () => {
 
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="Icing">Select A Cup Cake Icing</label>
+                    <label htmlFor="Icing">Select A CupCake Icing:  </label>
                     <select id="Icing" value={order.cakeIcingId}
                         onChange={
                             (evt) => {
@@ -247,7 +247,7 @@ export const CustomCupCakeOrderForm = () => {
                                 update(copy)
                             }}
                     >
-                        <option value={0}>Please choose an icing...</option>
+                        <option className="form-drop" value={0}>Please choose an icing...</option>
                         {
                             cakeIcings.map(icing => {
                                 return <option value={icing.id}>{icing.icing}</option>
@@ -259,7 +259,7 @@ export const CustomCupCakeOrderForm = () => {
 
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="Filling">Select A Cup Cake Filling</label>
+                    <label htmlFor="Filling">Select A CupCake Filling:  </label>
                     <select id="Filling" value={order.cakeFillingId}
                         onChange={
                             (evt) => {
@@ -268,7 +268,7 @@ export const CustomCupCakeOrderForm = () => {
                                 update(copy)
                             }}
                     >
-                        <option value={0}>Please choose a filling...</option>
+                        <option className="form-drop" value={0}>Please choose a filling...</option>
                         {
                             cakeFillings.map(filling => {
                                 return <option value={filling.id}>{filling.filling}</option>

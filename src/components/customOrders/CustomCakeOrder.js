@@ -51,7 +51,7 @@ export const CustomOrder = ({ id, fullName, date, eaters, description, beingBake
 
         <section className="order">
             <header>
-                <Link to={`/orders/${id}`}>See details for Order #: {id}</Link>
+                <Link to={`/orders/${id}`}>See details for Cake Order# {id}</Link>
             </header>
             <div>order placed by: {fullName}</div>
             <div>order needed on: {date}</div>

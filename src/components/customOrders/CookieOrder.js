@@ -51,7 +51,7 @@ export const CookieOrder = ({ cookId, fullName, date, eaters, description, being
 
         <section className="order">
             <header>
-                <Link to={`/cookieOrders/${cookId}`}>See details for Order #: {cookId}</Link>
+                <Link to={`/cookieOrders/${cookId}`}>See details for Cookie Order #: {cookId}</Link>
             </header>
             <div>order placed by: {fullName}</div>
             <div>order needed on: {date}</div>

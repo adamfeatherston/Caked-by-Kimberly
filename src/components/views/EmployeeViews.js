@@ -11,7 +11,10 @@ import { CustomOrderDetails } from "../customOrders/CustomCakeOrderDetails"
 import { CustomOrderEdit } from "../customOrders/CustomCakeOrderEdit"
 import { AboutCaked } from "./AboutCaked"
 import { CustomCupCakeEdit } from "../customOrders/CustomCupcakeEdit"
+import { CupCakeOrderDetails } from "../customOrders/CupCakeOrderDetails"
+import { CookieOrderDetails } from "../customOrders/CookieOrderDetails"
 import "./CustomerViews.css"
+import { CustomCookieEdit } from "../customOrders/CustomCookieEdit"
 
 export const EmployeeViews = () => {
 
@@ -31,10 +34,13 @@ export const EmployeeViews = () => {
 
 				<Route path="profile" element={<Profile />} />
 				<Route path="orders/:orderId" element={<CustomOrderDetails />} />
+				<Route path="cupCakeOrders/:orderId" element={<CupCakeOrderDetails />} />
+				<Route path="cookieOrders/:orderId" element={<CookieOrderDetails />} />
 				<Route path="orders" element={<CustomOrderContainer />} />
 				<Route path="customers" element={<CustomerContainer />} />
 				<Route path="orders/edit/:orderId/" element={<CustomOrderEdit />} />
 				<Route path="cupCakeOrders/edit/:orderId/" element={<CustomCupCakeEdit />} />
+				<Route path="cookieOrders/edit/:orderId/" element={<CustomCookieEdit />} />
 				<Route path="about" element={<AboutCaked />} />
 			</Route>
 		</Routes>

@@ -96,14 +96,15 @@ export const CustomOrderList = ({ searchTermState }) => {
 
     return <>
     <h1>Cake Orders</h1>
+
         {cakedUserObject.staff
             ? <button className="buttons" onClick={() => {
                 setBaked(!baked)
             }} >
                 {
                     baked
-                        ? "Show All Orders"
-                        : "Orders Not Baked"
+                        ? "Show All Cake Orders"
+                        : "Cake Orders Not Baked"
                 } </button>
             :""
         }
@@ -122,7 +123,10 @@ export const CustomOrderList = ({ searchTermState }) => {
                 )
             }
         </article>
-       
+        {!cakedUserObject.staff
+            ? <button className="buttons" onClick={() => navigate("/customOrders/")}>Create A Cake</button>
+            : ""
+        }
     </>
 
 }
