@@ -107,7 +107,7 @@ export const CustomOrderEdit = () => {
         </div>
 
         <form className="orderForm" id="edit form">
-            <h2 className="orderForm__title">Create Your Custom Cake</h2>
+            <h2 className="orderForm__title">Edit Your Custom Cake Order</h2>
 
             <fieldset>
                 <div className="form-group">
@@ -208,7 +208,7 @@ export const CustomOrderEdit = () => {
 
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="Design">Select A Cake Design</label>
+                    <label htmlFor="Design">Select A Cake Design:  </label>
                     <select id="Design" value={order.cakeDesignId}
                         onChange={
                             (evt) => {
@@ -217,7 +217,7 @@ export const CustomOrderEdit = () => {
                                 edit(copy)
                             }}
                     >
-                        <option value={0}>Please choose a cake design...</option>
+                        <option className="form-drop" value={0}>Please choose a cake design...</option>
                         {
                             cakeDesigns.map(design => {
                                 return <option value={design.id}>{design.design}</option>
@@ -229,7 +229,7 @@ export const CustomOrderEdit = () => {
 
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="Flavor">Select A Cake Flavor</label>
+                    <label htmlFor="Flavor">Select A Cake Flavor:  </label>
                     <select id="Flavor" value={order.cakeFlavorId}
                         onChange={
                             (evt) => {
@@ -238,7 +238,7 @@ export const CustomOrderEdit = () => {
                                 edit(copy)
                             }}
                     >
-                        <option value={0}>Please choose a flavor...</option>
+                        <option className="form-drop" value={0}>Please choose a flavor...</option>
                         {
                             cakeFlavors.map(flavor => {
                                 return <option value={flavor.id}>{flavor.flavor}</option>
@@ -250,7 +250,7 @@ export const CustomOrderEdit = () => {
 
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="Icing">Select A Cake Icing</label>
+                    <label htmlFor="Icing">Select A Cake Icing:  </label>
                     <select id="Icing" value={order.cakeIcingId}
                         onChange={
                             (evt) => {
@@ -259,7 +259,7 @@ export const CustomOrderEdit = () => {
                                 edit(copy)
                             }}
                     >
-                        <option value={0}>Please choose an icing...</option>
+                        <option className="form-drop" value={0}>Please choose an icing...</option>
                         {
                             cakeIcings.map(icing => {
                                 return <option value={icing.id}>{icing.icing}</option>
@@ -271,7 +271,7 @@ export const CustomOrderEdit = () => {
 
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="Filling">Select A Cake Filling</label>
+                    <label htmlFor="Filling">Select A Cake Filling:  </label>
                     <select id="Filling" value={order.cakeFillingId}
                         onChange={
                             (evt) => {
@@ -280,7 +280,7 @@ export const CustomOrderEdit = () => {
                                 edit(copy)
                             }}
                     >
-                        <option value={0}>Please choose a filling...</option>
+                        <option className="form-drop" value={0}>Please choose a filling...</option>
                         {
                             cakeFillings.map(filling => {
                                 return <option value={filling.id}>{filling.filling}</option>

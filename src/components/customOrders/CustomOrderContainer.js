@@ -3,6 +3,8 @@
 //2. Child Element 2: CustomOrderList.js
 
 import { useState } from "react"
+import { CookieOrderList } from "./CookieOrderList"
+import { CupCakeOrderList } from "./CupCakeOrderList"
 import { CustomOrderList } from "./CustomOrderList"
 import { CustomOrderSearch } from "./CustomOrderSearch"
 
@@ -13,5 +15,7 @@ export const CustomOrderContainer = () => {
     return <>
         <CustomOrderSearch setterFunction={setSearchTerms} />
         <CustomOrderList searchTermState={searchTerms} />
+        <CupCakeOrderList searchTermState={searchTerms} />
+        <CookieOrderList searchTermState={searchTerms} />
     </>
 }

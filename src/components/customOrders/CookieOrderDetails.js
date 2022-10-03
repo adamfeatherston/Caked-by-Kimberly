@@ -1,9 +1,9 @@
-//module for jsx that lists all details of a custom order
+//module for jsx that lists all details of a cookie order
 
 import { useEffect, useState } from "react"
 import { Link, useNavigate, useParams } from "react-router-dom"
 
-export const CustomOrderDetails = () => {
+export const CookieOrderDetails = () => {
     const { orderId } = useParams()
     const [order, updateOrder,] = useState({})
     const navigate = useNavigate()
@@ -11,7 +11,7 @@ export const CustomOrderDetails = () => {
     const orderIsBeingBaked = () => {
         if (order.beingBaked === false) {
             return <div>
-                <Link to={`/orders/edit/${orderId}`}>Click to edit Cake Order #: {orderId}</Link>
+                <Link to={`/cookieOrders/edit/${orderId}`}>Click to edit Cookie Order #: {orderId}</Link>
             </div>
         }
         else {
@@ -23,7 +23,7 @@ export const CustomOrderDetails = () => {
         () => {
 
 
-            fetch(`http://localhost:8088/cakeOrders?_expand=user&_expand=cakeFlavor&_expand=cakeIcing&_expand=cakeFilling&_expand=cakeDesign&id=${orderId}`)
+            fetch(`http://localhost:8088/cookieOrders?_expand=user&_expand=cookieFlavor&id=${orderId}`)
                 .then(response => response.json())
                 .then((data) => {
                     const singleOrder = data[0]
@@ -36,17 +36,14 @@ export const CustomOrderDetails = () => {
 
     return <>
         <section className="order">
-            <header className="order__header">Cake Order # {order.id}</header>
+            <header className="order__header">Cookie Order # {order.id}</header>
             <header className="order__header">Ordered By: {order?.user?.fullName}</header>
             <div>Date Needed: {order.dateNeeded}</div>
-            <div>Where is cake needed: {order.address}</div>
-            <div>Cake needs to serve: {order.numberOfEaters}</div>
+            <div>Where is order needed: {order.address}</div>
+            <div>NUmber of Cookies: {order?.cupCookieNumberId?.number}</div>
             <div>Description: {order.description}</div>
-            <div>Message on cake?: {order.messageOnCake}</div>
-            <div>Cake Desgin: {order?.cakeDesign?.design}</div>
-            <div>Cake Flavor: {order?.cakeFlavor?.flavor}</div>
-            <div>Cake Icing: {order?.cakeIcing?.icing}</div>
-            <div>Cake Filling: {order?.cakeFilling?.filling}</div>
+            <div>Message on cookie?: {order.messageOnCake}</div>
+            <div>Cookie Flavor: {order?.cookieFlavor?.flavor}</div>
             <footer className="order__footer">Customer Email: {order?.user?.email}</footer>
             <footer className="order__footer">Customer Phone: {order?.user?.phone}</footer>
             {orderIsBeingBaked()}

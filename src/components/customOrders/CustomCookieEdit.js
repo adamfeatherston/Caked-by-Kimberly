@@ -46,7 +46,7 @@ export const CustomCookieEdit = () => {
     }, [])
 
     useEffect(() => {
-        fetch(`http://localhost:8088/cupCakeOrders/${orderId}`)
+        fetch(`http://localhost:8088/cookieOrders/${orderId}`)
             .then(response => response.json())
             .then((data) => {
                 edit(data)
@@ -87,7 +87,7 @@ export const CustomCookieEdit = () => {
         </div>
 
         <form className="orderForm" id="edit form">
-            <h2 className="orderForm__title">Create Your Custom Cookies</h2>
+            <h2 className="orderForm__title">Edit Your Custom Cookie Order</h2>
 
             <fieldset>
                 <div className="form-group">
@@ -131,7 +131,7 @@ export const CustomCookieEdit = () => {
 
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="eaters">Select the number of Cup Cakes Needed</label>
+                    <label htmlFor="eaters">Select the number of Cookies Needed:  </label>
                     <select id="eaters" value={order.cupCookieNumberId}
                         onChange={
                             (evt) => {
@@ -140,7 +140,7 @@ export const CustomCookieEdit = () => {
                                 edit(copy)
                             }}
                     >
-                        <option value={0}>Please choose a how many...</option>
+                        <option className="form-drop"value={0}>Please choose a how many...</option>
                         {
                             cupCookieNumbers.map(number => {
                                 return <option value={number.id}>{number.number}</option>
@@ -152,7 +152,7 @@ export const CustomCookieEdit = () => {
 
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="description">Description of the Cup Cakes:</label>
+                    <label htmlFor="description">Description of the Cookies:</label>
                     <input
                         required autoFocus
                         type="text"
@@ -190,7 +190,7 @@ export const CustomCookieEdit = () => {
           
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="Flavor">Select A Cup Cake Flavor</label>
+                    <label htmlFor="Flavor">Select A Cookie Flavor:  </label>
                     <select id="Flavor" value={order.cookieFlavorId}
                         onChange={
                             (evt) => {
@@ -199,7 +199,7 @@ export const CustomCookieEdit = () => {
                                 edit(copy)
                             }}
                     >
-                        <option value={0}>Please choose a flavor...</option>
+                        <option className="form-drop" value={0}>Please choose a flavor...</option>
                         {
                             cookieFlavors.map(flavor => {
                                 return <option value={flavor.id}>{flavor.flavor}</option>

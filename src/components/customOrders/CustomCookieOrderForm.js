@@ -138,7 +138,7 @@ export const CustomCookieOrderForm = () => {
 
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="eaters">Select the number of Cookies Needed</label>
+                    <label htmlFor="eaters">Select the number of Cookies Needed:  </label>
                     <select id="eaters" value={order.cupCookieNumberId}
                         onChange={
                             (evt) => {
@@ -147,7 +147,7 @@ export const CustomCookieOrderForm = () => {
                                 update(copy)
                             }}
                     >
-                        <option value={0}>Please choose a how many...</option>
+                        <option className="form-drop" value={0}>Please choose a how many...</option>
                         {
                             cupCookieNumbers.map(number => {
                                 return <option value={number.id}>{number.number}</option>
@@ -197,7 +197,7 @@ export const CustomCookieOrderForm = () => {
 
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="Flavor">Select A Cookie Flavor</label>
+                    <label htmlFor="Flavor">Select A Cookie Flavor:  </label>
                     <select id="Flavor" value={order.cookieFlavorId}
                         onChange={
                             (evt) => {
@@ -206,7 +206,7 @@ export const CustomCookieOrderForm = () => {
                                 update(copy)
                             }}
                     >
-                        <option value={0}>Please choose a flavor...</option>
+                        <option className="form-drop" value={0}>Please choose a flavor...</option>
                         {
                             cookieFlavors.map(flavor => {
                                 return <option value={flavor.id}>{flavor.flavor}</option>

@@ -35,6 +35,10 @@
     font-family: 'Shadows Into Light', cursive;
 }
 
+.buttons:not(:disabled):hover {
+    transform: scale(1.2) translateY(.125rem);
+  }
+
 .feedback {
     border: 1px dotted  rgb(233, 196, 210);
     padding: 1rem;
@@ -78,3 +82,7 @@
        background-color: rgb(233, 196, 210);
        font-family: 'Shadows Into Light', cursive;
    }
+
+   .alert__btn:not(:disabled):hover {
+    transform: scale(1.2) translateY(.125rem);
+  }

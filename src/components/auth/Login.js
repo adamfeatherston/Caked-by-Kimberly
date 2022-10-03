@@ -86,7 +86,7 @@ export const Login = () => {
             <section className="login_text">
                 
                 <div>
-                <a href="https://www.instagram.com/cakedbykimberly/" target="_blank" rel="noopener"><img className="logo__nav" id="logo__nav" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1664230151/Caked%20by%20Kimberly/instagram-new-logo-2016_vjwlta.png" alt="Logo for caked by Kimberly"></img></a>
+                <a href="https://www.instagram.com/cakedbykimberly/" target="_blank" rel="noopener"><img className="logo__login" id="logo__login" src="https://res.cloudinary.com/dm5alwbmv/image/upload/v1664808181/Caked%20by%20Kimberly/instagram_huiolz.png" alt="Logo for caked by Kimberly"></img></a>
                 </div>
             </section>
         </main>

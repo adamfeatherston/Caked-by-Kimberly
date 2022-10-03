@@ -14,6 +14,8 @@ import { CustomCupCakeOrderForm } from "../customOrders/CustomCupCakeOrderForm"
 import { CustomCupCakeEdit } from "../customOrders/CustomCupcakeEdit"
 import { CustomCookieOrderForm } from "../customOrders/CustomCookieOrderForm"
 import { CustomCookieEdit } from "../customOrders/CustomCookieEdit"
+import { CupCakeOrderDetails } from "../customOrders/CupCakeOrderDetails"
+import { CookieOrderDetails } from "../customOrders/CookieOrderDetails"
 import "./CustomerViews.css"
 
 export const CustomerViews = () => {
@@ -35,6 +37,8 @@ export const CustomerViews = () => {
 				<Route path="profile" element={<Profile />} />
 				<Route path="orders" element={<CustomOrderContainer />} />
 				<Route path="orders/:orderId" element={<CustomOrderDetails />} />
+				<Route path="cupCakeOrders/:orderId" element={<CupCakeOrderDetails />} />
+				<Route path="cookieOrders/:orderId" element={<CookieOrderDetails />} />
 				<Route path="customOrders" element={<CustomOrderForm />} />
 				<Route path="cookieOrders" element={<CustomCookieOrderForm />} />
 				<Route path="cupCakeOrders" element={<CustomCupCakeOrderForm />} />

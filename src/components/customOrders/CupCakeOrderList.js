@@ -1,4 +1,4 @@
-//module for generating a list of all custom orders
+//module for generating a list of all cupcake orders
 //1. Fetch API of customOrders
 //2. Employees see a list of all orders that have been placed.
 //  a. initial state is all orders that are not currently being baked.
@@ -18,22 +18,21 @@
 
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { CustomOrder } from "./CustomCakeOrder"
+import { CupCakeOrder } from "./CupCakeOrder"
+
 import "./Orders.css"
 
-export const CustomOrderList = ({ searchTermState }) => {
+export const CupCakeOrderList = ({ searchTermState }) => {
     const [orders, setOrders] = useState([])
     const [filteredOrders, setFiltered] = useState([])
     const [baked, setBaked] = useState(false)
 
-
+    const navigate = useNavigate()
     const localCakedUser = localStorage.getItem("caked_user")
     const cakedUserObject = JSON.parse(localCakedUser)
-
-    const navigate = useNavigate()
-
+ 
     const getAllOrders = () => {
-        fetch(`http://localhost:8088/cakeOrders?_sort=dateNeeded&_expand=user`)
+        fetch(`http://localhost:8088/cupCakeOrders?_sort=dateNeeded&_expand=user&_expand=cupCookieNumber`)
             .then(response => response.json())
             .then((orderArray) => {
                 setOrders(orderArray)
@@ -42,7 +41,7 @@ export const CustomOrderList = ({ searchTermState }) => {
     useEffect(
         () => {
 
-            fetch(`http://localhost:8088/cakeOrders?_sort=dateNeeded&_expand=user`)
+            fetch(`http://localhost:8088/cupCakeOrders?_sort=dateNeeded&_expand=user&_expand=cupCookieNumber`)
                 .then(response => response.json())
                 .then((orderArray) => {
                     setOrders(orderArray)
@@ -95,27 +94,27 @@ export const CustomOrderList = ({ searchTermState }) => {
 
 
     return <>
-    <h1>Cake Orders</h1>
+    <h1>Cup Cake Orders</h1>
 
-        {cakedUserObject.staff
+    {cakedUserObject.staff
             ? <button className="buttons" onClick={() => {
                 setBaked(!baked)
             }} >
                 {
                     baked
-                        ? "Show All Cake Orders"
-                        : "Cake Orders Not Baked"
+                        ? "Show All CupCake Orders"
+                        : "CupCake Orders Not Baked"
                 } </button>
             :""
         }
 
         <article className="orders">
             {
-                filteredOrders.map(order => <CustomOrder key={`order--${order.id}`}
-                    id={order.id}
+                filteredOrders.map(order => <CupCakeOrder key={`cuporder--${order.id}`}
+                    cupId={order.id}
                     fullName={order?.user?.fullName}
                     date={order.dateNeeded}
-                    eaters={order.numberOfEaters}
+                    eaters={order?.cupCookieNumber.number}
                     description={order.description}
                     beingBaked={order.beingBaked}
                     getAllOrders={getAllOrders}
@@ -124,13 +123,9 @@ export const CustomOrderList = ({ searchTermState }) => {
             }
         </article>
         {!cakedUserObject.staff
-            ? <button className="buttons" onClick={() => navigate("/customOrders/")}>Create A Cake</button>
+            ? <button className="buttons" onClick={() => navigate("/cupCakeOrders/")}>Create Cup Cakes</button>
             : ""
         }
     </>
 
 }
-
-
-
-

@@ -10,7 +10,7 @@ input,
 select,
 textarea {
   color: #404040;
-  font-family: "Cookie", cursive;
+  font-family: "Patua One", Arial;
   font-size: 20px;
   line-height: 1.5;
   background-color: white;
@@ -61,11 +61,18 @@ p {
 
 }
 
+.image_1 {
+  height: 190px;
+  width: 130px;
+  padding-right: 3rem;
+
+}
+
 .about_text {
   text-align: center;
   color: #404040;
   font-family: "Cookie", cursive;
-  font-size: 35px;
+  font-size: 28px;
   line-height: 1.5;
 }
 
@@ -89,9 +96,56 @@ p {
   font-family: 'Shadows Into Light', cursive;
 }
 
+.buttons:not(:disabled):hover {
+  transform: scale(1.2) translateY(.125rem);
+}
+
 .create_links {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding-left: 35px;
   padding-top: 50px;
+}
+
+.cake_item {
+   justify-content: center;
+}
+
+.create_cake {
+  justify-content: center;
+}
+
+.create_cupCake {
+  padding-left: 3px;
+  justify-content: center;
+}
+
+.create_cookie {
+  padding-left: 15px;
+  justify-content: center;
+}
+
+.cup_photo {
+  padding-left: 15px;
+}
+
+.cake_btn {
+  padding-left: 1px;
+}
+
+.cup_btn {
+  padding-left: 0px;
+}
+
+.cook_btn {
+  padding-left: 3px;
+}
+
+.about_contact {
+  text-align: center;
+  color: #404040;
+  font-family: "Cookie", cursive;
+  font-size: 20px;
+  line-height: 1.5;
 }
